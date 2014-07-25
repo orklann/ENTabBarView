@@ -13,6 +13,10 @@
     
 }
 @property (readwrite) NSColor *bgColor;
+@property (readwrite) NSColor *tabBGColor;
+@property (readwrite) NSColor *tabActivedBGColor;
+@property (readwrite) NSColor *tabBorderColor;
+
 @property (readwrite) ENTabView *activeTabView;
 
 + (id)viewWithSupperView:(NSView *)superView;

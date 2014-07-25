@@ -16,6 +16,9 @@
 
 @synthesize activeTabView;
 @synthesize bgColor;
+@synthesize tabBGColor;
+@synthesize tabActivedBGColor;
+@synthesize tabBorderColor;
 
 + (id)viewWithSupperView:(NSView *)superView{
     NSRect rect = [superView bounds];
