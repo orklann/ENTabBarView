@@ -19,6 +19,5 @@
 
 @property (readwrite) ENTabView *activeTabView;
 
-+ (id)viewWithSupperView:(NSView *)superView;
 - (id)addTabView;
 @end

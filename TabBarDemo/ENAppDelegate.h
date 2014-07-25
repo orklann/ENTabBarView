@@ -10,7 +10,8 @@
 #import "ENTabBarView.h"
 
 @interface ENAppDelegate : NSObject <NSApplicationDelegate>{
-    ENTabBarView *tabBarView;
+    IBOutlet ENTabBarView *tabBarView;
+    IBOutlet NSTextView *textView;
 }
 
 @property (assign) IBOutlet NSWindow *window;

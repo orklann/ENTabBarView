@@ -12,12 +12,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [[[self window] contentView] setFlipped:YES];
-    tabBarView = [ENTabBarView viewWithSupperView:[[self window] contentView]];
+    //[[[self window] contentView] setFlipped:YES];
+    //tabBarView = [ENTabBarView viewWithSupperView:[[self window] contentView]];
     
     ENTabView *t1 = [tabBarView addTabView];
     [t1 setAsActiveTabView];
-    
+
 }
 
 @end
