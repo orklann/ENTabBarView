@@ -35,6 +35,11 @@
     
 }
 
+// Force tab view to redraw itself
+- (void)redraw{
+    [self setNeedsDisplay:YES];
+}
+
 #pragma mark -- Set as active tab --
 - (void)setAsActiveTabView{
     NSArray *allTabViews = [[self superview] subviews];

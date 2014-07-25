@@ -18,4 +18,5 @@
 
 + (id)tabViewInTabBarView:(ENTabBarView*)tabBarView;
 - (void)setAsActiveTabView;
+- (void)redraw;
 @end

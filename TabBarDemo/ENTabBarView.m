@@ -10,6 +10,7 @@
 #import "ENTabView.h"
 
 #define kTabBarViewHeight 36
+#define kLeftPaddingOfTabBarView 16
 
 @implementation ENTabBarView
 
