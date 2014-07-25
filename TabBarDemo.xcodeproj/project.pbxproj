@@ -121,10 +121,10 @@
 		93E1D8A81982298F00CB9756 /* TabBarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
-				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
 				93E1D8D91982330800CB9756 /* ENTabView.h */,
 				93E1D8DA1982330800CB9756 /* ENTabView.m */,
+				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
+				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
 				93E1D8B41982298F00CB9756 /* ENAppDelegate.h */,
 				93E1D8B51982298F00CB9756 /* ENAppDelegate.m */,
 				93E1D8B71982298F00CB9756 /* MainMenu.xib */,
@@ -481,6 +481,7 @@
 				93E1D8D21982298F00CB9756 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93E1D8D31982298F00CB9756 /* Build configuration list for PBXNativeTarget "TabBarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +490,7 @@
 				93E1D8D51982298F00CB9756 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

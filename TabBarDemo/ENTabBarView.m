@@ -38,7 +38,13 @@
 
 }
 
+/* Overriding this method fix the setFrame issue as well
 - (void)resizeSubviewsWithOldSize:(NSSize)oldSize{
+    
+}
+*/
+
+- (void)resizeWithOldSuperviewSize:(NSSize)oldSize{
     NSRect rect = [[self superview] bounds];
     rect.origin = NSMakePoint(0, rect.size.height - kTabBarViewHeight);
     rect.size.height = kTabBarViewHeight;
