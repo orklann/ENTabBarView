@@ -7,12 +7,15 @@
 //
 
 #import "ENTabBarView.h"
+#import "ENTabView.h"
 
 #define kTabBarViewHeight 36
 
 @implementation ENTabBarView
 
+@synthesize activeTabView;
 @synthesize bgColor;
+
 + (id)viewWithSupperView:(NSView *)superView{
     NSRect rect = [superView bounds];
     rect.origin = NSZeroPoint;
@@ -41,4 +44,8 @@
     NSRectFill([self bounds]);
 }
 
+- (id)addTabView{
+    ENTabView *tab = [ENTabView tabViewInTabBarView:self];
+    return tab;
+}
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "ENTabView.h"
-
+#import "ENTabBarView.h"
 @implementation ENTabView
 
 @synthesize isActived;
 
 + (id)tabViewInTabBarView:(ENTabBarView*)tabBarView{
     ENTabView *tabView = [[ENTabView alloc] initWithFrame:NSZeroRect];
+    [tabBarView addSubview:tabView];
     return tabView;
 }
 
@@ -30,7 +31,15 @@
 {
     [super drawRect:dirtyRect];
     
-    // Drawing code here.
+    // Drawing tab here
+    
+}
+
+#pragma mark -- Set as active tab --
+- (void)setAsActiveTabView{
+    NSArray *allTabViews = [[self superview] subviews];
+    NSLog(@"%@", allTabViews);
+    [self setIsActived:YES];
 }
 
 @end

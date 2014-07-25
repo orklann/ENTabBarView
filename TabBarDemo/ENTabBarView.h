@@ -7,11 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ENTabView.h"
 
 @interface ENTabBarView : NSView{
     
 }
 @property (readwrite) NSColor *bgColor;
+@property (readwrite) ENTabView *activeTabView;
 
 + (id)viewWithSupperView:(NSView *)superView;
+- (id)addTabView;
 @end

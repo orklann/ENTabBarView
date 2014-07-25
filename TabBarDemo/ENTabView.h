@@ -17,4 +17,5 @@
 @property (readwrite) BOOL isActived;
 
 + (id)tabViewInTabBarView:(ENTabBarView*)tabBarView;
+- (void)setAsActiveTabView;
 @end
