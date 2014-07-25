@@ -40,6 +40,8 @@
     NSArray *allTabViews = [[self superview] subviews];
     NSLog(@"%@", allTabViews);
     [self setIsActived:YES];
+    
+    [(ENTabBarView*)[self superview]  setActiveTabView:self];
 }
 
 @end
