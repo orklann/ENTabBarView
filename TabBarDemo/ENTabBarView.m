@@ -34,7 +34,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        bgColor = [NSColor colorWithSRGBRed:0.16 green:0.17 blue: 0.21 alpha:1.0];
+        // Give all colors a default value if none given
+        bgColor = [NSColor whiteColor];//[NSColor colorWithSRGBRed:0.16 green:0.17 blue: 0.21 alpha:1.0];
         tabBGColor = [NSColor colorWithSRGBRed:0.68 green:0.68 blue:0.68 alpha:1.0];
         tabActivedBGColor = [NSColor whiteColor];
         tabBorderColor = [NSColor colorWithSRGBRed:0.57 green:0.57 blue:0.57 alpha:1.0];
@@ -46,9 +47,16 @@
 {
     [super drawRect:dirtyRect];
     
-    // Drawing code here.
+    // Drawing background color of Tab bar view.
     [bgColor set];
     NSRectFill([self bounds]);
+    
+    // Drawing bottom border line
+    NSPoint start = NSMakePoint(0, 1);
+    NSPoint end = NSMakePoint(NSMaxX([self bounds]), 1);
+    [NSBezierPath setDefaultLineWidth:2.0];
+    [tabBorderColor set];
+    [NSBezierPath strokeLineFromPoint:start toPoint:end];
 }
 
 - (id)addTabView{
