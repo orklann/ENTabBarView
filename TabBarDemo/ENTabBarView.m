@@ -11,6 +11,7 @@
 
 #define kTabBarViewHeight 36
 #define kLeftPaddingOfTabBarView 16
+#define kTabHeight 24
 
 @implementation ENTabBarView
 
@@ -24,6 +25,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        tabs = [NSMutableArray array];
+        
         // Give all colors a default value if none given
         bgColor = [NSColor colorWithSRGBRed:0.16 green:0.17 blue: 0.21 alpha:1.0];
         tabBGColor = [NSColor colorWithSRGBRed:0.68 green:0.68 blue:0.68 alpha:1.0];
@@ -35,7 +38,7 @@
 
 
 -(void)awakeFromNib{
-
+    tabs = [NSMutableArray array];
 }
 
 /* Overriding this method fix the setFrame issue as well

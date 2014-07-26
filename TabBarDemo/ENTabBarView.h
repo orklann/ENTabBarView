@@ -10,7 +10,7 @@
 #import "ENTabView.h"
 
 @interface ENTabBarView : NSView{
-    
+    NSMutableArray *tabs;
 }
 @property (readwrite) NSColor *bgColor;
 @property (readwrite) NSColor *tabBGColor;
