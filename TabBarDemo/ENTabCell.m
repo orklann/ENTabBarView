@@ -94,6 +94,20 @@
     //
     // End here |<------
     // End of drawing border
+    
+    // If finally not a active tab, draw bottom line
+    if (![self isActived]) {
+        NSLog(@"i am not active!");
+        NSBezierPath *linePath = [NSBezierPath bezierPath];
+        [linePath moveToPoint:leftBottomPoint];
+        [linePath lineToPoint:rightBottomPoint];
+        
+        // Why plus 1? Coz we operated on points before, so shift 1 pixel width
+        // *_*
+        [linePath setLineWidth:kBorderWidth+1];
+        [[[self tabBarView] tabBorderColor] set];
+        [linePath stroke];
+    }
 }
 
 #pragma mark -- Set as active tab --

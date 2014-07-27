@@ -126,12 +126,9 @@
             [tab setIsActived:NO];
         }*/
         
-        NSLog(@"On Mouse Down");
         if(NSPointInRect(p, rect)){
-            NSLog(@"In Rect Tab");
             [tab setAsActiveTab];
         }else{
-            NSLog(@"Not in Tab");
             [tab setIsActived:NO];
         }
     };
