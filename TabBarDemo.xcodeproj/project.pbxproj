@@ -52,10 +52,10 @@
 		93E1D8C81982298F00CB9756 /* TabBarDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TabBarDemoTests-Info.plist"; sourceTree = "<group>"; };
 		93E1D8CA1982298F00CB9756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93E1D8CC1982298F00CB9756 /* TabBarDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarDemoTests.m; sourceTree = "<group>"; };
-		93E1D8D6198229B800CB9756 /* ENTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabBarView.h; sourceTree = "<group>"; };
-		93E1D8D7198229B800CB9756 /* ENTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabBarView.m; sourceTree = "<group>"; };
-		93E1D8D91982330800CB9756 /* ENTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabCell.h; sourceTree = "<group>"; };
-		93E1D8DA1982330800CB9756 /* ENTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabCell.m; sourceTree = "<group>"; };
+		93E1D8D6198229B800CB9756 /* ENTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabBarView.h; path = TabBarDemo/ENTabBarView.h; sourceTree = "<group>"; };
+		93E1D8D7198229B800CB9756 /* ENTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabBarView.m; path = TabBarDemo/ENTabBarView.m; sourceTree = "<group>"; };
+		93E1D8D91982330800CB9756 /* ENTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabCell.h; path = TabBarDemo/ENTabCell.h; sourceTree = "<group>"; };
+		93E1D8DA1982330800CB9756 /* ENTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabCell.m; path = TabBarDemo/ENTabCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +79,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93073D541985416D005B31C1 /* ENTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				93E1D8D91982330800CB9756 /* ENTabCell.h */,
+				93E1D8DA1982330800CB9756 /* ENTabCell.m */,
+				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
+				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
+			);
+			name = ENTabBarView;
+			sourceTree = "<group>";
+		};
 		93E1D8961982298F00CB9756 = {
 			isa = PBXGroup;
 			children = (
+				93073D541985416D005B31C1 /* ENTabBarView */,
 				93E1D8A81982298F00CB9756 /* TabBarDemo */,
 				93E1D8C61982298F00CB9756 /* TabBarDemoTests */,
 				93E1D8A11982298F00CB9756 /* Frameworks */,
@@ -121,10 +133,6 @@
 		93E1D8A81982298F00CB9756 /* TabBarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				93E1D8D91982330800CB9756 /* ENTabCell.h */,
-				93E1D8DA1982330800CB9756 /* ENTabCell.m */,
-				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
-				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
 				93E1D8B41982298F00CB9756 /* ENAppDelegate.h */,
 				93E1D8B51982298F00CB9756 /* ENAppDelegate.m */,
 				93E1D8B71982298F00CB9756 /* MainMenu.xib */,
