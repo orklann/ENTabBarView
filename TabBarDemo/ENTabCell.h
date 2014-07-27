@@ -19,5 +19,5 @@
 
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView;
 - (void)setAsActiveTab;
-- (void)redraw;
+- (void)draw;
 @end

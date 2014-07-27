@@ -19,8 +19,9 @@
 }
 
 
-// Force tab view to redraw itself
-- (void)redraw{
+// tab cell draw itself in this method, called in TabBarView's drawRect method
+// - :>
+- (void)draw{
     
 }
 
