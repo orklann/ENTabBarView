@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93073D53198535C6005B31C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93E1D89F1982298F00CB9756 /* TabBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E1D8A21982298F00CB9756 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		93E1D8A51982298F00CB9756 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -45,7 +46,6 @@
 		93E1D8B21982298F00CB9756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		93E1D8B41982298F00CB9756 /* ENAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENAppDelegate.h; sourceTree = "<group>"; };
 		93E1D8B51982298F00CB9756 /* ENAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ENAppDelegate.m; sourceTree = "<group>"; };
-		93E1D8B81982298F00CB9756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93E1D8BA1982298F00CB9756 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93E1D8C01982298F00CB9756 /* TabBarDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabBarDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E1D8C11982298F00CB9756 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -308,7 +308,7 @@
 		93E1D8B71982298F00CB9756 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				93E1D8B81982298F00CB9756 /* Base */,
+				93073D53198535C6005B31C1 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
