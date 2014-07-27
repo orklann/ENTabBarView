@@ -97,7 +97,6 @@
     
     // If finally not a active tab, draw bottom line
     if (![self isActived]) {
-        NSLog(@"i am not active!");
         NSBezierPath *linePath = [NSBezierPath bezierPath];
         [linePath moveToPoint:leftBottomPoint];
         [linePath lineToPoint:rightBottomPoint];

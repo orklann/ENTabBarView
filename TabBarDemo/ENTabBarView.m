@@ -126,14 +126,15 @@
     p = [self convertPoint:p fromView:[[self window] contentView]];
     for(index = 0; index < [tabs count]; ++ index){
         ENTabCell *tab = [tabs objectAtIndex:index];
-        NSRect rect = [tab frame];
-        /*if([[tab path] containsPoint:p]){
-            [tab setIsActived:YES];
+        // Use [NSBezierPath containsPoint] to check clicking
+        //NSRect rect = [tab frame];
+        //
+        /*if(NSPointInRect(p, rect)){
+            [tab setAsActiveTab];
         }else{
             [tab setIsActived:NO];
         }*/
-        
-        if(NSPointInRect(p, rect)){
+        if([[tab path] containsPoint:p]){
             [tab setAsActiveTab];
         }else{
             [tab setIsActived:NO];
