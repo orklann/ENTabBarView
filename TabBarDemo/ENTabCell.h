@@ -14,9 +14,10 @@
     
 }
 
+@property (readwrite) ENTabBarView *tabBarView;
 @property (readwrite) BOOL isActived;
 
-+ (id)tabCell;
++ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView;
 - (void)setAsActiveTab;
 - (void)redraw;
 @end

@@ -11,9 +11,10 @@
 @implementation ENTabCell
 
 @synthesize isActived;
-
-+ (id)tabCell{
+@synthesize tabBarView;
++ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView{
     ENTabCell *tabCell = [[ENTabCell alloc] init];
+    [tabCell setTabBarView:tabBarView];
     return tabCell;
 }
 

@@ -19,7 +19,13 @@
 
 @implementation ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index{
-    return NSZeroRect;
+    CGFloat x = kLeftPaddingOfTabBarView + (index * kMaxTabCellWidth);
+    CGFloat y = 0;
+    CGFloat width = kMaxTabCellWidth;
+    CGFloat height = kTabCellHeight;
+    
+    NSRect rect = NSMakeRect(x, y, width, height);
+    return rect;
 }
 @end
 
@@ -83,10 +89,17 @@
     [NSBezierPath setDefaultLineWidth:2.0];
     [tabBorderColor set];
     [NSBezierPath strokeLineFromPoint:start toPoint:end];
+    
+    /*
+     * Draw all tabcells
+     * (*) All are not subclass of NSView, but NSObject
+     */
+    
 }
 
 - (id)addTabView{
-    ENTabCell *tab = [ENTabCell tabCell];
+    ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self];
+    [tabs addObject:tab];
     return tab;
 }
 @end
