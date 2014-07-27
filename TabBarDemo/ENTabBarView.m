@@ -91,7 +91,7 @@
     [NSBezierPath strokeLineFromPoint:start toPoint:end];
     
     /*
-     * Draw all tabcells
+     * Draw all tab cells
      * (*) All are not subclass of NSView, but NSObject
      */
     
