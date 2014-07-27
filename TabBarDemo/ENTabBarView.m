@@ -35,6 +35,8 @@
 @synthesize tabBGColor;
 @synthesize tabActivedBGColor;
 @synthesize tabBorderColor;
+@synthesize tabTitleColor;
+@synthesize tabActivedTitleColor;
 
 - (id)initWithFrame:(NSRect)frame
 {

@@ -18,6 +18,8 @@
 @property (readwrite) NSColor *tabBGColor;
 @property (readwrite) NSColor *tabActivedBGColor;
 @property (readwrite) NSColor *tabBorderColor;
+@property (readwrite) NSColor *tabTitleColor;
+@property (readwrite) NSColor *tabActivedTitleColor;
 
 - (id)addTabView;
 
