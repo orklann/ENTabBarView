@@ -11,9 +11,11 @@
 @class ENTabBarView;
 
 @interface ENTabCell : NSObject{
-    
+    NSBezierPath *path;
 }
 
+@property (readonly) NSBezierPath *path;
+@property (readwrite) NSRect frame;
 @property (readwrite) ENTabBarView *tabBarView;
 @property (readwrite) BOOL isActived;
 

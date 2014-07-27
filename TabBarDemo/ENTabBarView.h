@@ -18,4 +18,6 @@
 @property (readwrite) NSColor *tabBorderColor;
 
 - (id)addTabView;
+
+- (void)redraw;
 @end

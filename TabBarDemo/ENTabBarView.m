@@ -8,10 +8,10 @@
 
 #import "ENTabBarView.h"
 
-#define kTabBarViewHeight 36
+#define kTabBarViewHeight 32
 #define kLeftPaddingOfTabBarView 16
 #define kMaxTabCellWidth 168
-#define kTabCellHeight 24
+#define kTabCellHeight 28
 
 @interface ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
@@ -72,6 +72,10 @@
     [self setNeedsLayout:YES];
 }
 
+- (void)redraw{
+    [self setNeedsDisplay:YES];
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
@@ -94,12 +98,32 @@
      * Draw all tab cells
      * (*) All are not subclass of NSView, but NSObject
      */
-    
+    NSUInteger index = 0;
+    for(index = 0; index < [tabs count]; ++ index){
+        NSRect rect = [self tabRectFromIndex:index];
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        [tab setFrame:rect];
+        [tab draw];
+    }
 }
 
 - (id)addTabView{
     ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self];
     [tabs addObject:tab];
     return tab;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent{
+    NSUInteger index = 0;
+    NSPoint p = [theEvent locationInWindow];
+    for(index = 0; index < [tabs count]; ++ index){
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        if([[tab path] containsPoint:p]){
+            [tab setIsActived:YES];
+        }else{
+            [tab setIsActived:NO];
+        }
+    };
+    [self redraw];
 }
 @end
