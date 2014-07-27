@@ -10,7 +10,8 @@
 
 #define kTabBarViewHeight 36
 #define kLeftPaddingOfTabBarView 16
-#define kTabHeight 24
+#define kMaxTabCellWidth 168
+#define kTabCellHeight 24
 
 @interface ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
