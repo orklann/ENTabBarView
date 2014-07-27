@@ -26,7 +26,6 @@
     [t1 setAsActiveTab];
     
     [tabBarView addTabView];
-
     [tabBarView redraw];
 }
 

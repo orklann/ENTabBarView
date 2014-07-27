@@ -56,11 +56,16 @@
     tabs = [NSMutableArray array];
 }
 
-/* Overriding this method fix the setFrame issue as well
-- (void)resizeSubviewsWithOldSize:(NSSize)oldSize{
-    
-}
-*/
+/* Overriding this method fix the setFrame issue as well */
+/*- (void)resizeSubviewsWithOldSize:(NSSize)oldSize{
+    NSRect rect = [[self superview] bounds];
+    rect.origin = NSMakePoint(0, rect.size.height - kTabBarViewHeight);
+    rect.size.height = kTabBarViewHeight;
+    [self setFrame:rect];
+    [self setNeedsDisplay:YES];
+    NSLog(@"[*]%@", NSStringFromRect(rect));
+    [self setNeedsLayout:YES];
+}*/
 
 - (void)resizeWithOldSuperviewSize:(NSSize)oldSize{
     NSRect rect = [[self superview] bounds];
