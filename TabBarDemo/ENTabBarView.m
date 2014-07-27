@@ -75,7 +75,6 @@
     rect.size.height = kTabBarViewHeight;
     [self setFrame:rect];
     [self setNeedsDisplay:YES];
-    NSLog(@"[*]%@", NSStringFromRect(rect));
     [self setNeedsLayout:YES];
 }
 
@@ -91,7 +90,6 @@
     [bgColor set];
     NSRect rect = [self frame];
     rect.origin = NSZeroPoint;
-    NSLog(@"drawRect:%@", NSStringFromRect(rect));
     NSRectFill(rect);
 
     // Drawing bottom border line
