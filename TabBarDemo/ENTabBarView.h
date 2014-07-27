@@ -12,6 +12,8 @@
 @interface ENTabBarView : NSView{
     NSMutableArray *tabs;
 }
+
+@property (readwrite) ENTabCell *selectedTab;
 @property (readwrite) NSColor *bgColor;
 @property (readwrite) NSColor *tabBGColor;
 @property (readwrite) NSColor *tabActivedBGColor;

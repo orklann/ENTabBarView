@@ -707,7 +707,7 @@
                         </scroller>
                     </scrollView>
                     <customView appearanceType="aqua" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inN-4m-AUb" customClass="ENTabBarView">
-                        <rect key="frame" x="153" y="333" width="108" height="32"/>
+                        <rect key="frame" x="143" y="333" width="118" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                 </subviews>

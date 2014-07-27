@@ -38,7 +38,7 @@
     float radius = 4.0;
     path = [NSBezierPath bezierPath];
     
-    float deltaXfromLeftAndRight = 6;
+    float deltaXfromLeftAndRight = 3;
     
     int minX = NSMinX(rect);
     int midX = NSMidX(rect);
@@ -98,7 +98,8 @@
 
 #pragma mark -- Set as active tab --
 - (void)setAsActiveTab{
-    
+    [self setIsActived:YES];
+    [[self tabBarView] setSelectedTab:self];
 }
 
 @end

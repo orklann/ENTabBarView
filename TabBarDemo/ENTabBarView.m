@@ -84,7 +84,7 @@
     [bgColor set];
     NSRect rect = [self frame];
     rect.origin = NSZeroPoint;
-    NSLog(@"%@", NSStringFromRect(rect));
+    NSLog(@"drawRect:%@", NSStringFromRect(rect));
     NSRectFill(rect);
 
     // Drawing bottom border line
@@ -113,17 +113,30 @@
     return tab;
 }
 
-- (void)mouseDown:(NSEvent *)theEvent{
+- (void)mouseDown:(NSEvent *)theEvent{    
     NSUInteger index = 0;
     NSPoint p = [theEvent locationInWindow];
+    p = [self convertPoint:p fromView:[[self window] contentView]];
     for(index = 0; index < [tabs count]; ++ index){
         ENTabCell *tab = [tabs objectAtIndex:index];
-        if([[tab path] containsPoint:p]){
+        NSRect rect = [tab frame];
+        /*if([[tab path] containsPoint:p]){
             [tab setIsActived:YES];
         }else{
             [tab setIsActived:NO];
+        }*/
+        
+        NSLog(@"On Mouse Down");
+        if(NSPointInRect(p, rect)){
+            NSLog(@"In Rect Tab");
+            [tab setAsActiveTab];
+        }else{
+            NSLog(@"Not in Tab");
+            [tab setIsActived:NO];
         }
     };
+    
+    [[self selectedTab] setAsActiveTab];
     [self redraw];
 }
 @end

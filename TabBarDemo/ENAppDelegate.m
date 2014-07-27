@@ -23,10 +23,9 @@
     
     [[textView enclosingScrollView] setBorderType:NSNoBorder];
     ENTabCell *t1 = [tabBarView addTabView];
-    [t1 setIsActived:YES];
+    [t1 setAsActiveTab];
     
-    ENTabCell *t2 = [tabBarView addTabView];
-    [t2 setIsActived:NO];
+    [tabBarView addTabView];
 
     [tabBarView redraw];
 }
