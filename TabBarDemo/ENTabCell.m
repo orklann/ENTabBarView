@@ -76,6 +76,8 @@
     
     [path setLineWidth:kBorderWidth];
     
+    // Draw tab background 
+    
     if ([self isActived]) {
         [[[self tabBarView] tabActivedBGColor] set];
     }else{
@@ -91,9 +93,7 @@
     //[path closePath]; Comment out this line to prevent stroke cell bottom line 
     [[[self tabBarView] tabBorderColor] set];
     [path stroke];
-    //
-    // End here |<------
-    // End of drawing border
+
     
     // If finally not a active tab, draw bottom line
     if (![self isActived]) {
