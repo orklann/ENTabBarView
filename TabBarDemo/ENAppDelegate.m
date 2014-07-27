@@ -15,8 +15,7 @@
     //[[[self window] contentView] setFlipped:YES];
     //tabBarView = [ENTabBarView viewWithSupperView:[[self window] contentView]];
     
-    ENTabView *t1 = [tabBarView addTabView];
-    [t1 setAsActiveTabView];
+    ENTabCell *t1 = [tabBarView addTabView];
 
 }
 

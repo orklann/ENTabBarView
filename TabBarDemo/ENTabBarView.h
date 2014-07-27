@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ENTabView.h"
+#import "ENTabCell.h"
 
 @interface ENTabBarView : NSView{
     NSMutableArray *tabs;
@@ -16,8 +16,6 @@
 @property (readwrite) NSColor *tabBGColor;
 @property (readwrite) NSColor *tabActivedBGColor;
 @property (readwrite) NSColor *tabBorderColor;
-
-@property (readwrite) ENTabView *activeTabView;
 
 - (id)addTabView;
 @end

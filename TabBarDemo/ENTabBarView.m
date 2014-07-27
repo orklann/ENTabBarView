@@ -7,15 +7,23 @@
 //
 
 #import "ENTabBarView.h"
-#import "ENTabView.h"
 
 #define kTabBarViewHeight 36
 #define kLeftPaddingOfTabBarView 16
 #define kTabHeight 24
 
+@interface ENTabBarView (Expose)
+- (NSRect)tabRectFromIndex:(NSUInteger)index;
+@end
+
+@implementation ENTabBarView (Expose)
+- (NSRect)tabRectFromIndex:(NSUInteger)index{
+    return NSZeroRect;
+}
+@end
+
 @implementation ENTabBarView
 
-@synthesize activeTabView;
 @synthesize bgColor;
 @synthesize tabBGColor;
 @synthesize tabActivedBGColor;
@@ -77,7 +85,7 @@
 }
 
 - (id)addTabView{
-    ENTabView *tab = [ENTabView tabViewInTabBarView:self];
+    ENTabCell *tab = [ENTabCell tabCell];
     return tab;
 }
 @end

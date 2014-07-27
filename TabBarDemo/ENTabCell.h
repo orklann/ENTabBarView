@@ -10,13 +10,13 @@
 
 @class ENTabBarView;
 
-@interface ENTabView : NSView{
+@interface ENTabCell : NSObject{
     
 }
 
 @property (readwrite) BOOL isActived;
 
-+ (id)tabViewInTabBarView:(ENTabBarView*)tabBarView;
-- (void)setAsActiveTabView;
++ (id)tabCell;
+- (void)setAsActiveTab;
 - (void)redraw;
 @end

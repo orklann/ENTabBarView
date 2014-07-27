@@ -19,7 +19,7 @@
 		93E1D8CB1982298F00CB9756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E1D8C91982298F00CB9756 /* InfoPlist.strings */; };
 		93E1D8CD1982298F00CB9756 /* TabBarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8CC1982298F00CB9756 /* TabBarDemoTests.m */; };
 		93E1D8D8198229B800CB9756 /* ENTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8D7198229B800CB9756 /* ENTabBarView.m */; };
-		93E1D8DB1982330800CB9756 /* ENTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8DA1982330800CB9756 /* ENTabView.m */; };
+		93E1D8DB1982330800CB9756 /* ENTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8DA1982330800CB9756 /* ENTabCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,8 @@
 		93E1D8CC1982298F00CB9756 /* TabBarDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarDemoTests.m; sourceTree = "<group>"; };
 		93E1D8D6198229B800CB9756 /* ENTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabBarView.h; sourceTree = "<group>"; };
 		93E1D8D7198229B800CB9756 /* ENTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabBarView.m; sourceTree = "<group>"; };
-		93E1D8D91982330800CB9756 /* ENTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabView.h; sourceTree = "<group>"; };
-		93E1D8DA1982330800CB9756 /* ENTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabView.m; sourceTree = "<group>"; };
+		93E1D8D91982330800CB9756 /* ENTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabCell.h; sourceTree = "<group>"; };
+		93E1D8DA1982330800CB9756 /* ENTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +121,8 @@
 		93E1D8A81982298F00CB9756 /* TabBarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				93E1D8D91982330800CB9756 /* ENTabView.h */,
-				93E1D8DA1982330800CB9756 /* ENTabView.m */,
+				93E1D8D91982330800CB9756 /* ENTabCell.h */,
+				93E1D8DA1982330800CB9756 /* ENTabCell.m */,
 				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
 				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
 				93E1D8B41982298F00CB9756 /* ENAppDelegate.h */,
@@ -266,7 +266,7 @@
 				93E1D8D8198229B800CB9756 /* ENTabBarView.m in Sources */,
 				93E1D8AF1982298F00CB9756 /* main.m in Sources */,
 				93E1D8B61982298F00CB9756 /* ENAppDelegate.m in Sources */,
-				93E1D8DB1982330800CB9756 /* ENTabView.m in Sources */,
+				93E1D8DB1982330800CB9756 /* ENTabCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
