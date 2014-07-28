@@ -82,7 +82,8 @@
     [self setNeedsDisplay:YES];
     
     /* Call this method here, and we don't need to setup layout in Interface Builder
-     * And we need to call [tabBarView redraw] after launch to keep layout
+     * And we need to call [tabBarView redraw] after launch to keep layout, so that this method 
+     * would be called here.
      */
     [self resizeWithOldSuperviewSize:NSZeroSize];
 }
