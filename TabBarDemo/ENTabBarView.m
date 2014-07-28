@@ -61,6 +61,7 @@
 
 @implementation ENTabBarView
 
+@synthesize tabs;
 @synthesize bgColor;
 @synthesize tabBGColor;
 @synthesize tabActivedBGColor;
@@ -120,7 +121,13 @@
 
 - (void)mouseUp:(NSEvent*)event {
     if (event.clickCount == 2) { // We capture user double click on tabbar view
-        NSLog(@"Double Click up.");
+        NSPoint p =[event locationInWindow];
+        p = [self convertPoint:p fromView:[[self window] contentView]];
+        if ([self isBlankAreaOfTabBarView:p]) {
+            ENTabCell *tab = [self addTabView];
+            [tab setAsActiveTab];
+            [self redraw];
+        }
     }
 }
 
@@ -166,18 +173,8 @@
     p = [self convertPoint:p fromView:[[self window] contentView]];
     for(index = 0; index < [tabs count]; ++ index){
         ENTabCell *tab = [tabs objectAtIndex:index];
-        // Use [NSBezierPath containsPoint] to check clicking
-        //NSRect rect = [tab frame];
-        //
-        /*if(NSPointInRect(p, rect)){
-            [tab setAsActiveTab];
-        }else{
-            [tab setIsActived:NO];
-        }*/
         if([[tab path] containsPoint:p]){
             [tab setAsActiveTab];
-        }else{
-            [tab setIsActived:NO];
         }
     };
     

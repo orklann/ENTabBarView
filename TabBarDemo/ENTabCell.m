@@ -111,6 +111,13 @@
 
 #pragma mark -- Set as active tab --
 - (void)setAsActiveTab{
+    NSUInteger index = 0;
+    NSMutableArray *tabs = [[self tabBarView] tabs];
+    for(index = 0; index < [tabs count]; ++ index){
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        [tab setIsActived:NO];
+    }
+    
     [self setIsActived:YES];
     [[self tabBarView] setSelectedTab:self];
 }
