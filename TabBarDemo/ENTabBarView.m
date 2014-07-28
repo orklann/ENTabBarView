@@ -34,7 +34,7 @@
 // Rect for left most tab list control
 - (NSRect)rectForTabListControl{
     NSRect rect = NSMakeRect(0, 0, kWidthOfTabList, kHeightOfTabList);
-    rect = CGRectInset(rect, 5, 9);
+    rect = CGRectInset(rect, 6, 10);
     return rect;
 }
 
@@ -202,7 +202,7 @@
     p = [self convertPoint:p fromView:[[self window] contentView]];
     
     /* Check if tabs list control clicked */
-    if ([tabListControlPath containsPoint:p]) {
+    if (NSPointInRect(p, [self rectForTabListControl])) {
         NSLog(@"Tab listing...");
     }
     
@@ -223,9 +223,9 @@
 - (void)mouseMoved:(NSEvent *)theEvent{
     NSPoint p = [theEvent locationInWindow];
     p = [self convertPoint:p fromView:[[self window] contentView]];
-    NSLog(@"Moved...");
+
     /* Check if tabs list control clicked */
-    if ([tabListControlPath containsPoint:p]) {
+    if (NSPointInRect(p, [self rectForTabListControl])) {
         self.smallControlColor = [NSColor whiteColor];
     }else{
         self.smallControlColor = oldSmallControlColor;
