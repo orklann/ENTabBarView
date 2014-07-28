@@ -14,12 +14,13 @@
     NSBezierPath *path;
 }
 
+@property (readwrite) NSMutableAttributedString *title;
 @property (readonly) NSBezierPath *path;
 @property (readwrite) NSRect frame;
 @property (readwrite) ENTabBarView *tabBarView;
 @property (readwrite) BOOL isActived;
 
-+ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView;
++ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle;
 - (void)setAsActiveTab;
 - (void)draw;
 @end

@@ -17,11 +17,23 @@
 @synthesize frame;
 @synthesize isActived;
 @synthesize tabBarView;
+@synthesize title;
 
-+ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView{
++ (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle{
     ENTabCell *tabCell = [[ENTabCell alloc] init];
     [tabCell setTabBarView:tabBarView];
     [tabCell setIsActived:NO];
+    
+    /* Setup title's attributed string */
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:12];
+    NSColor *fontColor = [[tabCell tabBarView] tabTitleColor];
+    [attrs setObject:font forKey:NSFontAttributeName];
+    [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
+    
+    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:aTittle attributes:attrs];
+    
+    [tabCell setTitle:mas];
     return tabCell;
 }
 
@@ -107,6 +119,9 @@
         [[[self tabBarView] tabBorderColor] set];
         [linePath stroke];
     }
+    
+    // Draw title
+    [[self title] drawInRect:[self frame]];
 }
 
 #pragma mark -- Set as active tab --

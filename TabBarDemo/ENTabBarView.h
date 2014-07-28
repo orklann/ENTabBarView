@@ -26,9 +26,8 @@
 @property (readwrite) NSColor *tabTitleColor;
 @property (readwrite) NSColor *tabActivedTitleColor;
 
-- (id)addTabView;
+- (id)addTabViewWithTitle:(NSString *)title;
 - (void)redraw;
-
 
 - (void)popupMenuDidChoosed;
 @end

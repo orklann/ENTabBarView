@@ -60,13 +60,13 @@
     return YES;
 }
 
-/*+ (NSMenu *)defaultMenu {
++ (NSMenu *)defaultMenu {
     NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
     [theMenu insertItemWithTitle:@"Beep" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:0];
     [theMenu insertItemWithTitle:@"Honk" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:1];
     [theMenu setDelegate:self];
     return theMenu;
-}*/
+}
 @end
 
 @implementation ENTabBarView
@@ -141,7 +141,7 @@
         NSPoint p =[event locationInWindow];
         p = [self convertPoint:p fromView:[[self window] contentView]];
         if ([self isBlankAreaOfTabBarViewInPoint:p]) {
-            ENTabCell *tab = [self addTabView];
+            ENTabCell *tab = [self addTabViewWithTitle:@"Untitled"];
             [tab setAsActiveTab];
             [self redraw];
         }
@@ -200,8 +200,8 @@
     }
 }
 
-- (id)addTabView{
-    ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self];
+- (id)addTabViewWithTitle:(NSString *)title;{
+    ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self title:title];
     [tabs addObject:tab];
     return tab;
 }
