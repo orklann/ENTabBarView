@@ -22,7 +22,7 @@
     [tabBarView setTabBGColor:tabColor];
     
     [[textView enclosingScrollView] setBorderType:NSNoBorder];
-    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"app.js"];
+    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note.rtf"];
     [t1 setAsActiveTab];
     
     [tabBarView addTabViewWithTitle:@"index.html"];
