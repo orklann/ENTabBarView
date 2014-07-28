@@ -200,6 +200,8 @@
         NSRect rect = [self tabRectFromIndex:index];
         ENTabCell *tab = [tabs objectAtIndex:index];
         [tab setFrame:rect];
+        [self setToolTip:[tab title]];
+        [self addToolTipRect:[tab frame] owner:[tab title] userData:nil];
         [tab draw];
     }
 }
