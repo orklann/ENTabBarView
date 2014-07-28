@@ -11,6 +11,10 @@
 
 #define kBorderWidth 2
 
+#define kCloseButtonWidth 8
+
+#define deltaXfromLeftAndRight 3
+
 @implementation ENTabCell
 
 @synthesize path;
@@ -19,15 +23,49 @@
 @synthesize tabBarView;
 @synthesize title;
 @synthesize titleAttributedString;
+@synthesize canDrawCloseButton;
 
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle{
     ENTabCell *tabCell = [[ENTabCell alloc] init];
     [tabCell setTabBarView:tabBarView];
     [tabCell setIsActived:NO];
     [tabCell setTitle:aTittle];
+    [tabCell setCanDrawCloseButton:NO];
     return tabCell;
 }
 
+- (NSRect)closeButtonRect{
+    NSRect tabRect = [self frame];
+    CGFloat maxX = NSMaxX(tabRect);
+    NSRect rect = NSMakeRect(maxX - tabRect.size.height - deltaXfromLeftAndRight - 1, 0, tabRect.size.height, tabRect.size.height);
+    rect = CGRectInset(rect, kCloseButtonWidth + 2, kCloseButtonWidth + 2);
+    return rect;
+}
+
+- (void)drawCloseButton{
+    NSRect closeButtonRect = [self closeButtonRect];
+    NSBezierPath *closeButtonPath = [NSBezierPath bezierPath];
+    CGFloat minX = NSMinX(closeButtonRect);
+    CGFloat maxX = NSMaxX(closeButtonRect);
+    CGFloat minY = NSMinY(closeButtonRect);
+    CGFloat maxY = NSMaxY(closeButtonRect);
+    
+    NSPoint leftBottomPoint = NSMakePoint(minX, minY);
+    NSPoint leftTopPoint = NSMakePoint(minX, maxY);
+    NSPoint rightBottomPoint = NSMakePoint(maxX, minY);
+    NSPoint rightTopPoint = NSMakePoint(maxX, maxY);
+    
+    [closeButtonPath moveToPoint:leftBottomPoint];
+    [closeButtonPath lineToPoint:rightTopPoint];
+    
+    [closeButtonPath moveToPoint:leftTopPoint];
+    [closeButtonPath lineToPoint:rightBottomPoint];
+    
+    [closeButtonPath setLineWidth:2.0];
+    [[[self tabBarView] smallControlColor] set];
+    
+    [closeButtonPath stroke];
+}
 
 // tab cell draw itself in this method, called in TabBarView's drawRect method
 // - :>
@@ -40,8 +78,6 @@
     
     float radius = 4.0;
     path = [NSBezierPath bezierPath];
-    
-    float deltaXfromLeftAndRight = 3;
     
     int minX = NSMinX(rect);
     int midX = NSMidX(rect);
@@ -137,6 +173,11 @@
     titleRect.origin.y += yOffset;
     titleRect = NSInsetRect(titleRect, deltaXfromLeftAndRight + 26, 0);
     [self.titleAttributedString drawInRect:titleRect];
+    
+    // Draw close button if mouse on close button rect
+    if ([self canDrawCloseButton]) {
+        [self drawCloseButton];
+    }
 }
 
 #pragma mark -- Set as active tab --
@@ -150,6 +191,22 @@
     
     [self setIsActived:YES];
     [[self tabBarView] setSelectedTab:self];
+}
+
+#pragma mark == Forwar mouse event to tab ==
+- (void)mouseDown:(NSEvent *)theEvent{
+    
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent{
+    NSPoint p = [theEvent locationInWindow];
+    p = [[self tabBarView] convertPoint:p fromView:[[[self tabBarView] window] contentView]];
+    
+    if (NSPointInRect(p ,[self closeButtonRect])) {
+        canDrawCloseButton = YES;
+    }else{
+        canDrawCloseButton = NO;
+    }
 }
 
 @end

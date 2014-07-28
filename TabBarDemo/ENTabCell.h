@@ -14,6 +14,7 @@
     NSBezierPath *path;
 }
 
+@property (readwrite) BOOL canDrawCloseButton;
 @property (readwrite) NSString *title;
 @property (readwrite) NSMutableAttributedString *titleAttributedString;
 @property (readonly) NSBezierPath *path;
@@ -24,4 +25,8 @@
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle;
 - (void)setAsActiveTab;
 - (void)draw;
+
+/* forward mouse event to tab */
+- (void)mouseDown:(NSEvent *)theEvent;
+- (void)mouseMoved:(NSEvent *)theEvent;
 @end

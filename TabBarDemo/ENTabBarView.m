@@ -249,6 +249,9 @@
         if([[tab path] containsPoint:p]){
             [tab setAsActiveTab];
         }
+        
+        // forwar mouse down to tab cell
+        [tab mouseDown:theEvent];
     };
     
     [[self selectedTab] setAsActiveTab];
@@ -267,6 +270,15 @@
     }else{
         //self.smallControlColor = [self tabActivedBGColor]; //oldSmallControlColor;
     }
+    
+    /* Switch active tab */
+    NSUInteger index = 0;
+    for(index = 0; index < [tabs count]; ++ index){
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        // forwar mouse moved to tab cell
+        [tab mouseMoved:theEvent];
+    };
+
     [self redraw];
 }
 
