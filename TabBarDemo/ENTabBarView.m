@@ -9,22 +9,30 @@
 #import "ENTabBarView.h"
 
 #define kTabBarViewHeight 32
-#define kLeftPaddingOfTabBarView 16
+#define kWidthOfTabList 24
+#define kHeightOfTabList 28
 #define kMaxTabCellWidth 168
 #define kTabCellHeight 28
 
 @interface ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
+- (NSRect)rectForTabListControl;
 @end
 
 @implementation ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index{
-    CGFloat x = kLeftPaddingOfTabBarView + (index * kMaxTabCellWidth);
+    CGFloat x = kWidthOfTabList + (index * kMaxTabCellWidth);
     CGFloat y = 0;
     CGFloat width = kMaxTabCellWidth;
     CGFloat height = kTabCellHeight;
     
     NSRect rect = NSMakeRect(x, y, width, height);
+    return rect;
+}
+
+// Rect for left most tab list control
+- (NSRect)rectForTabListControl{
+    NSRect rect = NSMakeRect(0, 0, kWidthOfTabList, kHeightOfTabList);
     return rect;
 }
 @end
