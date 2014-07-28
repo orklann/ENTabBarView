@@ -88,6 +88,12 @@
     [self resizeWithOldSuperviewSize:NSZeroSize];
 }
 
+- (void)mouseUp:(NSEvent*)event {
+    if (event.clickCount == 2) { // We capture user double click on tabbar view
+        NSLog(@"Double Click up.");
+    }
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
