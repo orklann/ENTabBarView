@@ -22,10 +22,10 @@
     [tabBarView setTabBGColor:tabColor];
     
     [[textView enclosingScrollView] setBorderType:NSNoBorder];
-    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Tab 1"];
+    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"app.js"];
     [t1 setAsActiveTab];
     
-    [tabBarView addTabViewWithTitle:@"Tab 2"];
+    [tabBarView addTabViewWithTitle:@"index.html"];
     [tabBarView redraw];
 }
 

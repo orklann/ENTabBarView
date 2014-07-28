@@ -28,9 +28,11 @@
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:12];
     NSColor *fontColor = [[tabCell tabBarView] tabTitleColor];
+    NSMutableParagraphStyle* p = [[NSMutableParagraphStyle alloc] init];
+    p.alignment = kCTTextAlignmentCenter;
     [attrs setObject:font forKey:NSFontAttributeName];
     [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
-    
+    [attrs setObject:p forKey:NSParagraphStyleAttributeName];
     NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:aTittle attributes:attrs];
     
     [tabCell setTitle:mas];
@@ -121,7 +123,13 @@
     }
     
     // Draw title
-    [[self title] drawInRect:[self frame]];
+    NSRect titleRect = [self frame];
+    CGFloat fontHeight = title.size.height;
+    int yOffset = (titleRect.size.height - fontHeight) / 2.0;
+    
+    titleRect.size.height = fontHeight;
+    titleRect.origin.y += yOffset;
+    [[self title] drawInRect:titleRect  ];
 }
 
 #pragma mark -- Set as active tab --
