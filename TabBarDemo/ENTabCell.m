@@ -118,13 +118,15 @@
     NSColor *fontColor = [self isActived]?[[self tabBarView] tabActivedTitleColor] : [[self tabBarView] tabTitleColor];
     NSMutableParagraphStyle* p = [[NSMutableParagraphStyle alloc] init];
     p.alignment = kCTTextAlignmentCenter;
+    p.lineBreakMode = NSLineBreakByTruncatingTail;
     [attrs setObject:[[self tabBarView] tabFont] forKey:NSFontAttributeName];
     [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
     [attrs setObject:p forKey:NSParagraphStyleAttributeName];
     NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:self.title attributes:attrs];
     
     [self setTitleAttributedString:mas];
-    
+
+
     // Fix text layout: vertically center
     // [Todo]Fix: Close button by shifting rect
     NSRect titleRect = [self frame];
@@ -133,7 +135,8 @@
     
     titleRect.size.height = fontHeight;
     titleRect.origin.y += yOffset;
-    [[self titleAttributedString] drawInRect:titleRect  ];
+    titleRect = NSInsetRect(titleRect, deltaXfromLeftAndRight + 20, 0);
+    [self.titleAttributedString drawInRect:titleRect];
 }
 
 #pragma mark -- Set as active tab --
