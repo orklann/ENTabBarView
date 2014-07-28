@@ -243,7 +243,9 @@
     NSPoint p = [theEvent locationInWindow];
     p = [self convertPoint:p fromView:[[self window] contentView]];
 
-    /* Check if tabs list control clicked */
+    /* Check if tabs list control clicked
+     * Commented out so that not used
+     */
     if (NSPointInRect(p, [self rectForTabListControl])) {
         //self.smallControlColor = [self tabActivedBGColor];
     }else{
