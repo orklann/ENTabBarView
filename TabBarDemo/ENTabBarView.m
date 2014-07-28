@@ -84,7 +84,7 @@
         tabBorderColor = [NSColor colorWithSRGBRed:0.57 green:0.57 blue:0.57 alpha:1.0];
         tabTitleColor = [NSColor blackColor];
         tabActivedTitleColor = [NSColor blackColor];
-        smallControlColor = [NSColor  colorWithCalibratedRed:0.53 green:0.53 blue:0.53 alpha:1.0];
+        smallControlColor = [NSColor colorWithCalibratedRed:0.53 green:0.53 blue:0.53 alpha:1.0];
         oldSmallControlColor = smallControlColor;
         
          [[self window] setAcceptsMouseMovedEvents:YES];
