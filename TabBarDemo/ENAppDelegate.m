@@ -12,20 +12,15 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //[[[self window] contentView] setFlipped:YES];
-    // tabBarView = [ENTabBarView viewWithSupperView:[[self window] contentView]];
-    
-    NSColor *bgColor = [NSColor colorWithCalibratedRed: 0.6 green:0.6 blue:0.6 alpha:1.0];
-    [tabBarView setBgColor:bgColor];
-    
-    NSColor *tabColor = [NSColor colorWithCalibratedRed: 0.68 green: 0.68 blue: 0.68 alpha:1.0];
-    [tabBarView setTabBGColor:tabColor];
-    
     [[textView enclosingScrollView] setBorderType:NSNoBorder];
+    
+    /* Create two tab with titles */
     ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note++++ 2014-02-19.rtf"];
     [t1 setAsActiveTab];
     
     [tabBarView addTabViewWithTitle:@"index.html.rjs.erb.css.ruby"];
+    
+    /* Must call this to update tab bar view */
     [tabBarView redraw];
 }
 
