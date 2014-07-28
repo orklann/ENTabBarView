@@ -17,7 +17,7 @@
 @interface ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
 - (NSRect)rectForTabListControl;
-- (BOOL)isBlankAreaOfTabBarView:(NSPoint)p;
+- (BOOL)isBlankAreaOfTabBarViewInPoint:(NSPoint)p;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -37,7 +37,7 @@
     return rect;
 }
 
-- (BOOL)isBlankAreaOfTabBarView:(NSPoint)p{
+- (BOOL)isBlankAreaOfTabBarViewInPoint:(NSPoint)p{
     // Check tab list control
     NSRect rect = [self rectForTabListControl];
     if (NSPointInRect(p, rect)) {
@@ -123,7 +123,7 @@
     if (event.clickCount == 2) { // We capture user double click on tabbar view
         NSPoint p =[event locationInWindow];
         p = [self convertPoint:p fromView:[[self window] contentView]];
-        if ([self isBlankAreaOfTabBarView:p]) {
+        if ([self isBlankAreaOfTabBarViewInPoint:p]) {
             ENTabCell *tab = [self addTabView];
             [tab setAsActiveTab];
             [self redraw];
