@@ -236,7 +236,8 @@
     p = [self convertPoint:p fromView:[[self window] contentView]];
     
     /* Check if tabs list control clicked */
-    if (NSPointInRect(p, [self rectForTabListControl])) {
+    NSRect rectOfTabList = NSMakeRect(0, 0, kWidthOfTabList, kHeightOfTabList);
+    if (NSPointInRect(p, rectOfTabList)) {
         [NSMenu popUpContextMenu:[self tabsMenu] withEvent:theEvent forView:self];
     }
     
