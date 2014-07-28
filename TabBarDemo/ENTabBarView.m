@@ -163,13 +163,13 @@
     
     // Draw tab list control
     tabListControlPath = [NSBezierPath bezierPath];
-    NSRect tabListrect = [self rectForTabListControl];
-    tabListrect = NSIntegralRect(tabListrect);
-    int maxY = NSMaxY(tabListrect);
-    int minY = NSMinY(tabListrect);
-    int minX = NSMinX(tabListrect);
-    int maxX = NSMaxX(tabListrect);
-    int midX = NSMidX(tabListrect);
+    NSRect tabListRect = [self rectForTabListControl];
+    tabListRect = NSIntegralRect(tabListRect);
+    int maxY = NSMaxY(tabListRect);
+    int minY = NSMinY(tabListRect);
+    int minX = NSMinX(tabListRect);
+    int maxX = NSMaxX(tabListRect);
+    int midX = NSMidX(tabListRect);
     
     NSPoint p1 = NSMakePoint(midX, minY);
     NSPoint p2 = NSMakePoint(minX, maxY);
@@ -180,7 +180,7 @@
     [tabListControlPath lineToPoint:p3];
     [tabListControlPath lineToPoint:p1];
     //[[self smallControlColor] set];
-    // Use tab active back ground color to set tab list triangle 
+    // Use tab active back ground color to set tab list triangle
     [[self tabActivedBGColor] set];
     [tabListControlPath fill];
     
