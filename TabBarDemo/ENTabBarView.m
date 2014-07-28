@@ -64,7 +64,6 @@
     NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
     [theMenu insertItemWithTitle:@"Beep" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:0];
     [theMenu insertItemWithTitle:@"Honk" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:1];
-    [theMenu setDelegate:self];
     return theMenu;
 }
 @end

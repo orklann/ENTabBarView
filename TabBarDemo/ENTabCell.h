@@ -14,7 +14,8 @@
     NSBezierPath *path;
 }
 
-@property (readwrite) NSMutableAttributedString *title;
+@property (readwrite) NSString *title;
+@property (readwrite) NSMutableAttributedString *titleAttributedString;
 @property (readonly) NSBezierPath *path;
 @property (readwrite) NSRect frame;
 @property (readwrite) ENTabBarView *tabBarView;

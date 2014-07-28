@@ -18,24 +18,13 @@
 @synthesize isActived;
 @synthesize tabBarView;
 @synthesize title;
+@synthesize titleAttributedString;
 
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle{
     ENTabCell *tabCell = [[ENTabCell alloc] init];
     [tabCell setTabBarView:tabBarView];
     [tabCell setIsActived:NO];
-    
-    /* Setup title's attributed string */
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:12];
-    NSColor *fontColor = [[tabCell tabBarView] tabTitleColor];
-    NSMutableParagraphStyle* p = [[NSMutableParagraphStyle alloc] init];
-    p.alignment = kCTTextAlignmentCenter;
-    [attrs setObject:font forKey:NSFontAttributeName];
-    [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
-    [attrs setObject:p forKey:NSParagraphStyleAttributeName];
-    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:aTittle attributes:attrs];
-    
-    [tabCell setTitle:mas];
+    [tabCell setTitle:aTittle];
     return tabCell;
 }
 
@@ -123,13 +112,27 @@
     }
     
     // Draw title
+    /* Setup title's attributed string */
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:12];
+    NSColor *fontColor = [self isActived]?[[self tabBarView] tabActivedTitleColor] : [[self tabBarView] tabTitleColor];
+    NSMutableParagraphStyle* p = [[NSMutableParagraphStyle alloc] init];
+    p.alignment = kCTTextAlignmentCenter;
+    [attrs setObject:font forKey:NSFontAttributeName];
+    [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
+    [attrs setObject:p forKey:NSParagraphStyleAttributeName];
+    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:self.title attributes:attrs];
+    
+    [self setTitleAttributedString:mas];
+    
+    // Fix text layout: vertically center
     NSRect titleRect = [self frame];
-    CGFloat fontHeight = title.size.height;
+    CGFloat fontHeight = self.titleAttributedString.size.height;
     int yOffset = (titleRect.size.height - fontHeight) / 2.0;
     
     titleRect.size.height = fontHeight;
     titleRect.origin.y += yOffset;
-    [[self title] drawInRect:titleRect  ];
+    [[self titleAttributedString] drawInRect:titleRect  ];
 }
 
 #pragma mark -- Set as active tab --
