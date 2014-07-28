@@ -128,7 +128,7 @@
 
 
     // Fix text layout: vertically center
-    // [Todo]Fix: Close button by shifting rect
+    // [Done]Fix: Close button by shifting rect
     NSRect titleRect = [self frame];
     CGFloat fontHeight = self.titleAttributedString.size.height;
     int yOffset = (titleRect.size.height - fontHeight) / 2.0;
