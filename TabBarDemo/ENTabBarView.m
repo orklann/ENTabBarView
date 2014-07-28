@@ -98,7 +98,7 @@
         oldSmallControlColor = smallControlColor;
         
         // Font
-        tabFont = [NSFont fontWithName:@"Lucida Grande" size:13];
+        tabFont = [NSFont fontWithName:@"Lucida Grande" size:11];
     }
     return self;
 }

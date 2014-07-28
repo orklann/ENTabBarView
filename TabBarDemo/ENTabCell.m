@@ -135,7 +135,7 @@
     
     titleRect.size.height = fontHeight;
     titleRect.origin.y += yOffset;
-    titleRect = NSInsetRect(titleRect, deltaXfromLeftAndRight + 20, 0);
+    titleRect = NSInsetRect(titleRect, deltaXfromLeftAndRight + 26, 0);
     [self.titleAttributedString drawInRect:titleRect];
 }
 
