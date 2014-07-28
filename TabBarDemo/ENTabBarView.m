@@ -155,6 +155,19 @@
     [self resizeWithOldSuperviewSize:NSZeroSize];
 }
 
+- (void)removeTabCell:(ENTabCell*)tabCell{
+    NSUInteger index = [[self tabs] indexOfObject:tabCell];
+    if (index > 0) {
+        index--;
+    }
+    [[self tabs] removeObject:tabCell];
+    if ([tabs count] > 0) {
+        ENTabCell *nextTab = [tabs objectAtIndex:index];
+        [nextTab setAsActiveTab];
+    }
+    [self redraw];
+}
+
 - (void)mouseUp:(NSEvent*)event {
     if (event.clickCount == 2) { // We capture user double click on tabbar view
         NSPoint p =[event locationInWindow];

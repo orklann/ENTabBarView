@@ -195,7 +195,16 @@
 
 #pragma mark == Forwar mouse event to tab ==
 - (void)mouseDown:(NSEvent *)theEvent{
+    NSPoint p = [theEvent locationInWindow];
+    p = [[self tabBarView] convertPoint:p fromView:[[[self tabBarView] window] contentView]];
     
+    if (NSPointInRect(p ,[self closeButtonRect])) {
+        // Delete this tab cell
+        [[self tabBarView] removeTabCell:self];
+    }else{
+        // Do nothing
+    }
+
 }
 
 - (void)mouseMoved:(NSEvent *)theEvent{

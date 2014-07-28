@@ -29,4 +29,5 @@
 
 - (id)addTabViewWithTitle:(NSString *)title;
 - (void)redraw;
+- (void)removeTabCell:(ENTabCell*)tabCell;
 @end
