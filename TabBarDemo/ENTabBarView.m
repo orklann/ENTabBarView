@@ -226,7 +226,7 @@
 
     /* Check if tabs list control clicked */
     if (NSPointInRect(p, [self rectForTabListControl])) {
-        self.smallControlColor = [NSColor whiteColor];
+        self.smallControlColor = [self tabActivedBGColor];
     }else{
         self.smallControlColor = oldSmallControlColor;
     }
