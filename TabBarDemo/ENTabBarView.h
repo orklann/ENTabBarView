@@ -13,6 +13,7 @@
     NSMutableArray *tabs;
 }
 
+@property (readwrite) NSColor *smallControlColor;
 @property (readwrite) NSMutableArray *tabs;
 @property (readwrite) ENTabCell *selectedTab;
 @property (readwrite) NSColor *bgColor;

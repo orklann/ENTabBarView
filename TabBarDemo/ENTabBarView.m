@@ -68,6 +68,7 @@
 @synthesize tabBorderColor;
 @synthesize tabTitleColor;
 @synthesize tabActivedTitleColor;
+@synthesize smallControlColor;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -80,6 +81,9 @@
         tabBGColor = [NSColor colorWithSRGBRed:0.68 green:0.68 blue:0.68 alpha:1.0];
         tabActivedBGColor = [NSColor whiteColor];
         tabBorderColor = [NSColor colorWithSRGBRed:0.57 green:0.57 blue:0.57 alpha:1.0];
+        tabTitleColor = [NSColor blackColor];
+        tabActivedTitleColor = [NSColor blackColor];
+        smallControlColor = [NSColor  colorWithCalibratedRed:0.53 green:0.53 blue:0.53 alpha:1.0];
     }
     return self;
 }
