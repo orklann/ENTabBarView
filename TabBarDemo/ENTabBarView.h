@@ -12,8 +12,8 @@
 @interface ENTabBarView : NSView<NSMenuDelegate>{
     NSMutableArray *tabs;
     NSBezierPath *tabListControlPath;
-    NSColor *oldSmallControlColor;
     NSTrackingArea *trackingArea;
+    NSMenu *menu;
 }
 
 @property (readwrite) NSColor *smallControlColor;
@@ -29,6 +29,4 @@
 
 - (id)addTabViewWithTitle:(NSString *)title;
 - (void)redraw;
-
-- (void)popupMenuDidChoosed;
 @end
