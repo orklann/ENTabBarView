@@ -114,11 +114,11 @@
     // Draw title
     /* Setup title's attributed string */
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:12];
+    
     NSColor *fontColor = [self isActived]?[[self tabBarView] tabActivedTitleColor] : [[self tabBarView] tabTitleColor];
     NSMutableParagraphStyle* p = [[NSMutableParagraphStyle alloc] init];
     p.alignment = kCTTextAlignmentCenter;
-    [attrs setObject:font forKey:NSFontAttributeName];
+    [attrs setObject:[[self tabBarView] tabFont] forKey:NSFontAttributeName];
     [attrs setObject:fontColor forKey:NSForegroundColorAttributeName];
     [attrs setObject:p forKey:NSParagraphStyleAttributeName];
     NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithString:self.title attributes:attrs];
@@ -126,7 +126,7 @@
     [self setTitleAttributedString:mas];
     
     // Fix text layout: vertically center
-    // [Todo]Fix: Close button by shifting rect 
+    // [Todo]Fix: Close button by shifting rect
     NSRect titleRect = [self frame];
     CGFloat fontHeight = self.titleAttributedString.size.height;
     int yOffset = (titleRect.size.height - fontHeight) / 2.0;

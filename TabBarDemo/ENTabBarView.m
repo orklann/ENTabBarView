@@ -78,6 +78,7 @@
 @synthesize tabTitleColor;
 @synthesize tabActivedTitleColor;
 @synthesize smallControlColor;
+@synthesize tabFont;
 
 #pragma mark - - - - - - - - -
 - (id)initWithFrame:(NSRect)frame
@@ -96,7 +97,8 @@
         smallControlColor = [NSColor colorWithCalibratedRed:0.53 green:0.53 blue:0.53 alpha:1.0];
         oldSmallControlColor = smallControlColor;
         
-         [[self window] setAcceptsMouseMovedEvents:YES];
+        // Font
+        tabFont = [NSFont fontWithName:@"Lucida Grande" size:13];
     }
     return self;
 }
