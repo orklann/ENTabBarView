@@ -179,7 +179,9 @@
     [tabListControlPath lineToPoint:p2];
     [tabListControlPath lineToPoint:p3];
     [tabListControlPath lineToPoint:p1];
-    [[self smallControlColor] set];
+    //[[self smallControlColor] set];
+    // Use tab active back ground color to set tab list triangle 
+    [[self tabActivedBGColor] set];
     [tabListControlPath fill];
     
     // Drawing bottom border line
@@ -239,9 +241,9 @@
 
     /* Check if tabs list control clicked */
     if (NSPointInRect(p, [self rectForTabListControl])) {
-        self.smallControlColor = [self tabActivedBGColor];
+        //self.smallControlColor = [self tabActivedBGColor];
     }else{
-        self.smallControlColor = oldSmallControlColor;
+        //self.smallControlColor = [self tabActivedBGColor]; //oldSmallControlColor;
     }
     [self redraw];
 }
