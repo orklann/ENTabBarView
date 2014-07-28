@@ -17,6 +17,7 @@
 @interface ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
 - (NSRect)rectForTabListControl;
+- (BOOL)isBlankAreaOfTabBarView:(NSPoint)p;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -34,6 +35,27 @@
 - (NSRect)rectForTabListControl{
     NSRect rect = NSMakeRect(0, 0, kWidthOfTabList, kHeightOfTabList);
     return rect;
+}
+
+- (BOOL)isBlankAreaOfTabBarView:(NSPoint)p{
+    // Check tab list control
+    NSRect rect = [self rectForTabListControl];
+    if (NSPointInRect(p, rect)) {
+        return NO;
+    }
+    
+    // Check all tabs path
+    NSUInteger index = 0;
+    for (index = 0; index < [tabs count]; ++index){
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        NSBezierPath *path = [tab path];
+        if ([path containsPoint:p]) {
+            return NO;
+        }
+    }
+    
+    // Else return YES
+    return YES;
 }
 @end
 
