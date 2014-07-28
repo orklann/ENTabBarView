@@ -18,6 +18,7 @@
 - (NSRect)tabRectFromIndex:(NSUInteger)index;
 - (NSRect)rectForTabListControl;
 - (BOOL)isBlankAreaOfTabBarViewInPoint:(NSPoint)p;
++ (NSMenu *)defaultMenu;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -58,6 +59,14 @@
     // Else return YES
     return YES;
 }
+
+/*+ (NSMenu *)defaultMenu {
+    NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
+    [theMenu insertItemWithTitle:@"Beep" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:0];
+    [theMenu insertItemWithTitle:@"Honk" action:@selector(popupMenuDidChoosed) keyEquivalent:@"" atIndex:1];
+    [theMenu setDelegate:self];
+    return theMenu;
+}*/
 @end
 
 @implementation ENTabBarView
@@ -204,6 +213,8 @@
     /* Check if tabs list control clicked */
     if (NSPointInRect(p, [self rectForTabListControl])) {
         NSLog(@"Tab listing...");
+        // 3. Pop up menu
+        [NSMenu popUpContextMenu:[[self class] defaultMenu] withEvent:theEvent forView:[self.window contentView]];
     }
     
     
@@ -247,5 +258,14 @@
     
     NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved); trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds] options:options owner:self userInfo:nil];
     [self addTrackingArea:trackingArea];
+}
+
+#pragma mark - Call back seletor -
+- (void)popupMenuDidChoosed{
+    NSLog(@"Call back from Menu");
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem{
+    return YES;
 }
 @end

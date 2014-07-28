@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ENTabCell.h"
 
-@interface ENTabBarView : NSView{
+@interface ENTabBarView : NSView<NSMenuDelegate>{
     NSMutableArray *tabs;
     NSBezierPath *tabListControlPath;
     NSColor *oldSmallControlColor;
@@ -27,6 +27,8 @@
 @property (readwrite) NSColor *tabActivedTitleColor;
 
 - (id)addTabView;
-
 - (void)redraw;
+
+
+- (void)popupMenuDidChoosed;
 @end
