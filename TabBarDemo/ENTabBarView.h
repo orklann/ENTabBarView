@@ -11,6 +11,9 @@
 
 @interface ENTabBarView : NSView{
     NSMutableArray *tabs;
+    NSBezierPath *tabListControlPath;
+    NSColor *oldSmallControlColor;
+    NSTrackingArea *trackingArea;
 }
 
 @property (readwrite) NSColor *smallControlColor;

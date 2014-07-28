@@ -34,6 +34,7 @@
 // Rect for left most tab list control
 - (NSRect)rectForTabListControl{
     NSRect rect = NSMakeRect(0, 0, kWidthOfTabList, kHeightOfTabList);
+    rect = CGRectInset(rect, 5, 9);
     return rect;
 }
 
@@ -84,6 +85,9 @@
         tabTitleColor = [NSColor blackColor];
         tabActivedTitleColor = [NSColor blackColor];
         smallControlColor = [NSColor  colorWithCalibratedRed:0.53 green:0.53 blue:0.53 alpha:1.0];
+        oldSmallControlColor = smallControlColor;
+        
+         [[self window] setAcceptsMouseMovedEvents:YES];
     }
     return self;
 }
@@ -145,6 +149,28 @@
     rect.origin = NSZeroPoint;
     NSRectFill(rect);
 
+    
+    // Draw tab list control
+    tabListControlPath = [NSBezierPath bezierPath];
+    NSRect tabListrect = [self rectForTabListControl];
+    tabListrect = NSIntegralRect(tabListrect);
+    int maxY = NSMaxY(tabListrect);
+    int minY = NSMinY(tabListrect);
+    int minX = NSMinX(tabListrect);
+    int maxX = NSMaxX(tabListrect);
+    int midX = NSMidX(tabListrect);
+    
+    NSPoint p1 = NSMakePoint(midX, minY);
+    NSPoint p2 = NSMakePoint(minX, maxY);
+    NSPoint p3 = NSMakePoint(maxX, maxY);
+    
+    [tabListControlPath moveToPoint:p1];
+    [tabListControlPath lineToPoint:p2];
+    [tabListControlPath lineToPoint:p3];
+    [tabListControlPath lineToPoint:p1];
+    [[self smallControlColor] set];
+    [tabListControlPath fill];
+    
     // Drawing bottom border line
     NSPoint start = NSMakePoint(0, 1);
     NSPoint end = NSMakePoint(NSMaxX(rect), 1);
@@ -171,10 +197,18 @@
     return tab;
 }
 
-- (void)mouseDown:(NSEvent *)theEvent{    
-    NSUInteger index = 0;
+- (void)mouseDown:(NSEvent *)theEvent{
     NSPoint p = [theEvent locationInWindow];
     p = [self convertPoint:p fromView:[[self window] contentView]];
+    
+    /* Check if tabs list control clicked */
+    if ([tabListControlPath containsPoint:p]) {
+        NSLog(@"Tab listing...");
+    }
+    
+    
+    /* Switch active tab */
+    NSUInteger index = 0;
     for(index = 0; index < [tabs count]; ++ index){
         ENTabCell *tab = [tabs objectAtIndex:index];
         if([[tab path] containsPoint:p]){
@@ -184,5 +218,34 @@
     
     [[self selectedTab] setAsActiveTab];
     [self redraw];
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent{
+    NSPoint p = [theEvent locationInWindow];
+    p = [self convertPoint:p fromView:[[self window] contentView]];
+    NSLog(@"Moved...");
+    /* Check if tabs list control clicked */
+    if ([tabListControlPath containsPoint:p]) {
+        self.smallControlColor = [NSColor whiteColor];
+    }else{
+        self.smallControlColor = oldSmallControlColor;
+    }
+    [self redraw];
+}
+
+- (void)setFrame:(NSRect)frame {
+    [super setFrame:frame];
+    [self removeTrackingArea:trackingArea];
+    
+    NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved); trackingArea = [[NSTrackingArea alloc] initWithRect:[self frame] options:options owner:self userInfo:nil];
+    [self addTrackingArea:trackingArea];
+}
+
+- (void)setBounds:(NSRect)bounds {
+    [super setBounds:bounds];
+    [self removeTrackingArea:trackingArea];
+    
+    NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved); trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds] options:options owner:self userInfo:nil];
+    [self addTrackingArea:trackingArea];
 }
 @end
