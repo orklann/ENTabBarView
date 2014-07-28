@@ -80,6 +80,7 @@
 @synthesize tabActivedTitleColor;
 @synthesize smallControlColor;
 
+#pragma mark - - - - - - - - -
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
