@@ -195,6 +195,8 @@
      * Draw all tab cells
      * (*) All are not subclass of NSView, but NSObject
      */
+    // Reset all tool tips
+    [self removeAllToolTips];
     NSUInteger index = 0;
     for(index = 0; index < [tabs count]; ++ index){
         NSRect rect = [self tabRectFromIndex:index];
