@@ -7,6 +7,7 @@
 //
 
 #import "ENTabBarView.h"
+#import "ENTabImage.h"
 
 #define kTabBarViewHeight 32
 #define kWidthOfTabList 24
@@ -329,5 +330,20 @@
     
     NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved); trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds] options:options owner:self userInfo:nil];
     [self addTrackingArea:trackingArea];
+}
+
+#pragma mark Drag & Drop
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag{
+    return NSDragOperationNone;
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent{
+    NSPoint p = [theEvent locationInWindow];
+    p = [self convertPoint:p fromView:[[self window] contentView]];
+    
+    ENTabCell *tab = [tabs objectAtIndex:0];
+    ENTabImage *img = [ENTabImage imageWithENTabCell:tab];
+    
+    [self dragImage:img at:p offset:NSMakeSize(0, 0) event:theEvent pasteboard:nil source:self slideBack:YES];
 }
 @end

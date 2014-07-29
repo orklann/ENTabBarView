@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9306860D19879E28001E2B7C /* ENTabImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9306860C19879E28001E2B7C /* ENTabImage.m */; };
 		93E1D8A31982298F00CB9756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E1D8A21982298F00CB9756 /* Cocoa.framework */; };
 		93E1D8AD1982298F00CB9756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E1D8AB1982298F00CB9756 /* InfoPlist.strings */; };
 		93E1D8AF1982298F00CB9756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8AE1982298F00CB9756 /* main.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9306860B19879E28001E2B7C /* ENTabImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabImage.h; sourceTree = "<group>"; };
+		9306860C19879E28001E2B7C /* ENTabImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabImage.m; sourceTree = "<group>"; };
 		93073D53198535C6005B31C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93E1D89F1982298F00CB9756 /* TabBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E1D8A21982298F00CB9756 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -82,6 +85,8 @@
 		93073D541985416D005B31C1 /* ENTabBarView */ = {
 			isa = PBXGroup;
 			children = (
+				9306860B19879E28001E2B7C /* ENTabImage.h */,
+				9306860C19879E28001E2B7C /* ENTabImage.m */,
 				93E1D8D91982330800CB9756 /* ENTabCell.h */,
 				93E1D8DA1982330800CB9756 /* ENTabCell.m */,
 				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
@@ -273,6 +278,7 @@
 			files = (
 				93E1D8D8198229B800CB9756 /* ENTabBarView.m in Sources */,
 				93E1D8AF1982298F00CB9756 /* main.m in Sources */,
+				9306860D19879E28001E2B7C /* ENTabImage.m in Sources */,
 				93E1D8B61982298F00CB9756 /* ENAppDelegate.m in Sources */,
 				93E1D8DB1982330800CB9756 /* ENTabCell.m in Sources */,
 			);
