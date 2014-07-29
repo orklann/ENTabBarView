@@ -248,6 +248,7 @@
 - (id)addTabViewWithTitle:(NSString *)title;{
     ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self title:title];
     [tabs addObject:tab];
+    [tab setAsActiveTab];
     return tab;
 }
 

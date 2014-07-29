@@ -24,4 +24,8 @@
     [tabBarView redraw];
 }
 
+- (IBAction)newTab:(id)sender{
+    [tabBarView addTabViewWithTitle:@"New Tab"];
+    [tabBarView redraw];
+}
 @end

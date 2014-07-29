@@ -16,4 +16,5 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+- (IBAction)newTab:(id)sender;
 @end
