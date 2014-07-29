@@ -11,7 +11,8 @@
 #define kTabBarViewHeight 32
 #define kWidthOfTabList 24
 #define kHeightOfTabList 28
-#define kMaxTabCellWidth 168
+#define kMaxTabCellWidth 180
+#define kMinTabCellWidth 40
 #define kTabCellHeight 28
 
 @interface ENTabBarView (Expose)
@@ -25,9 +26,15 @@
 
 @implementation ENTabBarView (Expose)
 - (NSRect)tabRectFromIndex:(NSUInteger)index{
-    CGFloat x = kWidthOfTabList + (index * kMaxTabCellWidth);
+    NSUInteger totalWidthOfTabBarView = [self frame].size.width - kWidthOfTabList - 12;
+    NSUInteger averageWidth = (NSUInteger)(totalWidthOfTabBarView / [tabs count]);
+    
+    averageWidth = averageWidth <= kMinTabCellWidth ? kMinTabCellWidth : averageWidth;
+    averageWidth = averageWidth >= kMaxTabCellWidth ? kMaxTabCellWidth : averageWidth;
+    
+    CGFloat x = kWidthOfTabList + (index * averageWidth);
     CGFloat y = 0;
-    CGFloat width = kMaxTabCellWidth;
+    CGFloat width = averageWidth;
     CGFloat height = kTabCellHeight;
     
     NSRect rect = NSMakeRect(x, y, width, height);
