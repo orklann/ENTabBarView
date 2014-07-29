@@ -18,7 +18,7 @@
     NSTimer *checkTabCountTimer;
 }
 
-@property (readwrite) NSColor *smallControlColor;
+
 @property (readwrite) NSFont *tabFont;
 @property (readwrite) NSMutableArray *tabs;
 @property (readwrite) ENTabCell *selectedTab;
@@ -28,6 +28,7 @@
 @property (readwrite) NSColor *tabBorderColor;
 @property (readwrite) NSColor *tabTitleColor;
 @property (readwrite) NSColor *tabActivedTitleColor;
+@property (readwrite) NSColor *smallControlColor;
 
 - (id)addTabViewWithTitle:(NSString *)title;
 - (void)redraw;
