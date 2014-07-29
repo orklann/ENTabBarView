@@ -344,6 +344,10 @@
     ENTabCell *tab = [tabs objectAtIndex:0];
     ENTabImage *img = [ENTabImage imageWithENTabCell:tab];
     
-    [self dragImage:img at:p offset:NSMakeSize(0, 0) event:theEvent pasteboard:nil source:self slideBack:YES];
+    NSSize offset = NSMakeSize(0.0, 0.0);
+    
+    p.x -= 24;
+    p.y -= 16;
+    [self dragImage:img at:p offset:offset event:theEvent pasteboard:nil source:self slideBack:YES];
 }
 @end
