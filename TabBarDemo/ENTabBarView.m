@@ -12,7 +12,7 @@
 #define kWidthOfTabList 24
 #define kHeightOfTabList 28
 #define kMaxTabCellWidth 180
-#define kMinTabCellWidth 40
+#define kMinTabCellWidth 100
 #define kTabCellHeight 28
 
 @interface ENTabBarView (Expose)
