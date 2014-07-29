@@ -14,6 +14,8 @@
     NSBezierPath *tabListControlPath;
     NSTrackingArea *trackingArea;
     NSMenu *menu;
+    
+    NSTimer *checkTabCountTimer;
 }
 
 @property (readwrite) NSColor *smallControlColor;

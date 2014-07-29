@@ -22,6 +22,7 @@
 - (NSMenu *)tabsMenu;
 - (void)popupMenuDidChoosed:(NSMenuItem*)item;
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem;
+- (void)checkTabsCount:(NSTimer*)timer;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -91,6 +92,14 @@
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem{
     return YES;
 }
+
+- (void)checkTabsCount:(NSTimer*)timer{
+    if ([tabs count] <= 1) {
+        [self setHidden:YES];
+    }else{
+        [self setHidden:NO];
+    }
+}
 @end
 
 @implementation ENTabBarView
@@ -123,6 +132,9 @@
         
         // Font
         tabFont = [NSFont fontWithName:@"Lucida Grande" size:11];
+        
+        // Timer
+        checkTabCountTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkTabsCount:) userInfo:nil repeats:YES];
     }
     return self;
 }
