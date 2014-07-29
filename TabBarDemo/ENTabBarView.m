@@ -346,8 +346,8 @@
     
     NSSize offset = NSMakeSize(0.0, 0.0);
     
-    p.x -= 24;
-    p.y -= 16;
+    p.x -= (tab.frame.size.width / 2);
+    p.y -= (tab.frame.size.height / 2);
     [self dragImage:img at:p offset:offset event:theEvent pasteboard:nil source:self slideBack:YES];
 }
 @end
