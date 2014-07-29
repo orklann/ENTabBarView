@@ -24,6 +24,8 @@
 - (void)popupMenuDidChoosed:(NSMenuItem*)item;
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem;
 - (void)checkTabsCount:(NSTimer*)timer;
+- (ENTabCell*)tabCellInPoint:(NSPoint)p;
+- (NSInteger)destinationCellIndexFromPoint:(NSPoint)p;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -81,7 +83,6 @@
     return menu;
 }
 
-#pragma mark - Call back seletor -
 - (void)popupMenuDidChoosed:(NSMenuItem*)item{
     NSUInteger index = [menu indexOfItem:item];
     if (index != -1) {
@@ -94,12 +95,31 @@
     return YES;
 }
 
-- (void)checkTabsCount:(NSTimer*)timer{
-    if ([tabs count] <= 1) {
-        [self setHidden:YES];
-    }else{
-        [self setHidden:NO];
+- (ENTabCell*)tabCellInPoint:(NSPoint)p{
+    NSUInteger index = 0;
+    for (index = 0; index < [tabs count]; index++) {
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        NSRect rect = [tab frame];
+        if (NSPointInRect(p, rect)) {
+            return tab;
+        }
     }
+    return nil;
+}
+
+- (NSInteger)destinationCellIndexFromPoint:(NSPoint)p{
+    NSInteger index = 0;
+    for (index = 0; index < [tabs count]; index++) {
+        ENTabCell *tab = [tabs objectAtIndex:index];
+        NSRect rect = [tab frame];
+        CGFloat midX = NSMidX(rect);
+        if (p.x <= midX) {
+            return index - 1 >= 0 ? index - 1 : 0;
+        }else if (p.x > midX){
+            return index++;
+        }
+    }
+    return -1;
 }
 @end
 
@@ -134,8 +154,9 @@
         // Font
         tabFont = [NSFont fontWithName:@"Lucida Grande" size:11];
         
-        // Timer
-        checkTabCountTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkTabsCount:) userInfo:nil repeats:YES];
+        destinationIndex = -1;
+        sourceIndex = -1;
+        isDragging = NO;
     }
     return self;
 }
@@ -247,8 +268,9 @@
      */
     // Reset all tool tips
     [self removeAllToolTips];
-    NSUInteger index = 0;
-    for(index = 0; index < [tabs count]; ++ index){
+    NSInteger index = 0;
+    for(index = 0; index < [tabs count]; ++index){
+        if(index == destinationIndex) continue;
         NSRect rect = [self tabRectFromIndex:index];
         ENTabCell *tab = [tabs objectAtIndex:index];
         [tab setFrame:rect];
@@ -290,6 +312,9 @@
     
     [[self selectedTab] setAsActiveTab];
     [self redraw];
+    
+    // Draging stuff
+    isDragging = NO;
 }
 
 - (void)mouseMoved:(NSEvent *)theEvent{
@@ -340,14 +365,52 @@
 - (void)mouseDragged:(NSEvent *)theEvent{
     NSPoint p = [theEvent locationInWindow];
     p = [self convertPoint:p fromView:[[self window] contentView]];
+    if (!isDragging) {
+        draggingTab = [self tabCellInPoint:p];
+        isDragging = YES;
+        if (draggingTab != nil) {
+            // Save source index
+            sourceIndex = [tabs indexOfObject:draggingTab];
+            [tabs removeObject:draggingTab];
+        }
+    }
     
-    ENTabCell *tab = [tabs objectAtIndex:0];
-    ENTabImage *img = [ENTabImage imageWithENTabCell:tab];
+    if (draggingTab == nil) {
+        return ;
+    }
+    
+    ENTabImage *img = [ENTabImage imageWithENTabCell:draggingTab];
     
     NSSize offset = NSMakeSize(0.0, 0.0);
     
-    p.x -= (tab.frame.size.width / 2);
-    p.y -= (tab.frame.size.height / 2);
+    p.x -= (draggingTab.frame.size.width / 2);
+    p.y -= (draggingTab.frame.size.height / 2);
     [self dragImage:img at:p offset:offset event:theEvent pasteboard:nil source:self slideBack:YES];
+}
+
+- (void)draggedImage:(NSImage *)image movedTo:(NSPoint)screenPoint{
+    
+    screenPoint.x += (draggingTab.frame.size.width / 2);
+    screenPoint.y += (draggingTab.frame.size.height / 2);
+    NSPoint windowLocation = [[self window] convertScreenToBase:screenPoint];
+    NSPoint viewPoint = [self convertPoint:windowLocation fromView:nil];
+    
+    destinationIndex = [self destinationCellIndexFromPoint:viewPoint];
+    NSLog(@"Destination: %d", destinationIndex);
+    [self redraw];
+
+}
+
+- (void)draggedImage:(NSImage *)image endedAt:(NSPoint)screenPoint operation:(NSDragOperation)operation{
+    
+    screenPoint.x += (draggingTab.frame.size.width / 2);
+    screenPoint.y += (draggingTab.frame.size.height / 2);
+    NSPoint windowLocation = [[self window] convertScreenToBase:screenPoint];
+    NSLog(@"Window: %@", NSStringFromPoint(windowLocation));
+    NSPoint viewPoint = [self convertPoint:windowLocation fromView:nil];
+    NSLog(@"View: %@", NSStringFromPoint(viewPoint));
+    NSLog(@"Dragging end.");
+    
+    isDragging = NO;
 }
 @end

@@ -15,7 +15,10 @@
     NSTrackingArea *trackingArea;
     NSMenu *menu;
     
-    NSTimer *checkTabCountTimer;
+    BOOL isDragging;
+    NSInteger destinationIndex;
+    NSInteger sourceIndex;
+    ENTabCell *draggingTab;
 }
 
 
