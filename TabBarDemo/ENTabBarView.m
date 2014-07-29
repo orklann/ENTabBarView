@@ -23,7 +23,6 @@
 - (NSMenu *)tabsMenu;
 - (void)popupMenuDidChoosed:(NSMenuItem*)item;
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem;
-- (void)checkTabsCount:(NSTimer*)timer;
 - (ENTabCell*)tabCellInPoint:(NSPoint)p;
 - (NSInteger)destinationCellIndexFromPoint:(NSPoint)p;
 @end
