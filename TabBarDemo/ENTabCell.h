@@ -21,7 +21,7 @@
 @property (readwrite) NSRect frame;
 @property (readwrite) ENTabBarView *tabBarView;
 @property (readwrite) BOOL isActived;
-@property (readwrite) BOOL isDraggingTab;
+@property (readwrite) BOOL isDraggingTab; // We did not use this in draw, just leave it here
 
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle;
 - (void)setAsActiveTab;
