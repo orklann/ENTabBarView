@@ -307,10 +307,20 @@
     }
 }
 
-- (id)addTabViewWithTitle:(NSString *)title;{
+- (id)addTabViewWithTitle:(NSString *)title{
     ENTabCell *tab = [ENTabCell tabCellWithTabBarView:self title:title];
+    
+    if ([[self delegate] respondsToSelector:@selector(tabWillBeCreated:)]) {
+        [[self delegate] tabWillBeCreated:tab];
+    }
+    
     [tabs addObject:tab];
     [tab setAsActiveTab];
+    
+    if ([[self delegate] respondsToSelector:@selector(tabDidBeCreated:)]) {
+        [[self delegate] tabDidBeCreated:tab];
+    }
+    
     return tab;
 }
 

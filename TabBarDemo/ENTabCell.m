@@ -188,6 +188,10 @@
 
 #pragma mark -- Set as active tab --
 - (void)setAsActiveTab{
+    if ([[self tabBarView] selectedTab] == self) {
+        return ;
+    }
+    
     NSUInteger index = 0;
     NSMutableArray *tabs = [[self tabBarView] tabs];
     for(index = 0; index < [tabs count]; ++ index){
@@ -215,7 +219,14 @@
     
     if (NSPointInRect(p ,[self closeButtonRect])) {
         // Delete this tab cell
+        id delegate = [[self tabBarView] delegate];
+        if ([delegate respondsToSelector:@selector(tabWillClose:)]) {
+            [delegate tabWillClose:self];
+        }
         [[self tabBarView] removeTabCell:self];
+        if ([delegate respondsToSelector:@selector(tabDidClosed:)]) {
+            [delegate tabDidClosed:self];
+        }
     }else{
         // Do nothing
     }

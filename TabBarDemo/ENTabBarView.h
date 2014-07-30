@@ -52,4 +52,7 @@
 
 - (void)tabWillClose:(ENTabCell*)tab;
 - (void)tabDidClosed:(ENTabCell*)tab;
+
+- (void)tabWillBeCreated:(ENTabCell*)tab;
+- (void)tabDidBeCreated:(ENTabCell*)tab;
 @end

@@ -39,4 +39,12 @@
 - (void)tabDidActived:(ENTabCell *)tab{
     NSLog(@"Tab did actived with title: %@", [tab title]);
 }
+
+- (void)tabWillClose:(ENTabCell *)tab{
+    NSLog(@"Tab will close with title: %@", [tab title]);
+}
+
+- (void)tabDidClosed:(ENTabCell *)tab{
+    NSLog(@"Tab did closed with title: %@", [tab title]);
+}
 @end
