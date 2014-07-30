@@ -18,10 +18,10 @@
     [tabBarView setDelegate:self];
     
     /* Create two tab with titles */
-    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note++++ 2014-02-19.rtf"];
+    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note.txt"];
     [t1 setAsActiveTab];
     
-    [tabBarView addTabViewWithTitle:@"index.html.rjs.erb.css.ruby"];
+    [tabBarView addTabViewWithTitle:@"index.html.rjs"];
     
     /* Must call this to update tab bar view */
     [tabBarView redraw];
