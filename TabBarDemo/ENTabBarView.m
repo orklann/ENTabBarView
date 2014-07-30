@@ -451,7 +451,7 @@
     
     NSRect tabBarViewRect = [self bounds];
     if (!NSPointInRect(viewPoint, tabBarViewRect)) {
-        [draggingTab setIsDraggingTab:NO];
+        [draggingTab setIsDraggingTab:NO]; // Not used? Yes, not used. Just let it be here
         [tabs removeObject:draggingTab];
         [tabs insertObject:draggingTab atIndex:sourceIndex];
         [self redraw];
