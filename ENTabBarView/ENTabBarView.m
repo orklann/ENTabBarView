@@ -321,6 +321,7 @@
         [[self delegate] tabDidBeCreated:tab];
     }
     
+    [self redraw];
     return tab;
 }
 

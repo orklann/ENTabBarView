@@ -18,13 +18,8 @@
     [tabBarView setDelegate:self];
     
     /* Create two tab with titles */
-    ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note.txt"];
-    [t1 setAsActiveTab];
-    
+    [tabBarView addTabViewWithTitle:@"Elk Developer's Note.txt"];
     [tabBarView addTabViewWithTitle:@"index.html.rjs"];
-    
-    /* Must call this to update tab bar view */
-    [tabBarView redraw];
 }
 
 - (IBAction)newTab:(id)sender{
