@@ -195,7 +195,16 @@
         [tab setIsActived:NO];
     }
     
+    // Call delegate protocol methods
+    if([[[self tabBarView] delegate] respondsToSelector:@selector(tabWillActive:)]){
+        [[[self tabBarView] delegate] tabWillActive:self];
+    }
+    
     [self setIsActived:YES];
+    
+    if([[[self tabBarView] delegate] respondsToSelector:@selector(tabDidActived:)]){
+        [[[self tabBarView] delegate] tabDidActived:self];
+    }
     [[self tabBarView] setSelectedTab:self];
 }
 

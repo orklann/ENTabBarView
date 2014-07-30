@@ -14,6 +14,8 @@
 {
     [[textView enclosingScrollView] setBorderType:NSNoBorder];
     
+    [tabBarView setDelegate:self];
+    
     /* Create two tab with titles */
     ENTabCell *t1 = [tabBarView addTabViewWithTitle:@"Elk Developer's Note++++ 2014-02-19.rtf"];
     [t1 setAsActiveTab];
@@ -27,5 +29,14 @@
 - (IBAction)newTab:(id)sender{
     [tabBarView addTabViewWithTitle:@"New Tab"];
     [tabBarView redraw];
+}
+
+#pragma mark ENTabBarView Delegate methods
+- (void)tabWillActive:(ENTabCell *)tab{
+    NSLog(@"Tab will active with title: %@", [tab title]);
+}
+
+- (void)tabDidActived:(ENTabCell *)tab{
+    NSLog(@"Tab did actived with title: %@", [tab title]);
 }
 @end

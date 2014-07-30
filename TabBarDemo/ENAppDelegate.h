@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ENTabBarView.h"
 
-@interface ENAppDelegate : NSObject <NSApplicationDelegate>{
+@interface ENAppDelegate : NSObject <NSApplicationDelegate, ENTabBarViewDelegate>{
     IBOutlet ENTabBarView *tabBarView;
     IBOutlet NSTextView *textView;
 }

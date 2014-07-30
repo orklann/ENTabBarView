@@ -331,13 +331,14 @@
         ENTabCell *tab = [tabs objectAtIndex:index];
         if([[tab path] containsPoint:p]){
             [tab setAsActiveTab];
+            //[self setSelectedTab:tab];
+            //[[self selectedTab] setAsActiveTab];
         }
         
         // forwar mouse down to tab cell
         [tab mouseDown:theEvent];
     };
     
-    [[self selectedTab] setAsActiveTab];
     [self redraw];
     
     // Draging stuff
