@@ -43,6 +43,9 @@
 - (void)removeTabCell:(ENTabCell*)tabCell;
 @end
 
+// ENTabBarView Delegates methods
+// Implement these methods to intercept your code
+// 
 @protocol ENTabBarViewDelegate <NSObject>
 
 @optional
