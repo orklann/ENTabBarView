@@ -428,7 +428,7 @@
     //tabBarViewRect = NSInsetRect(tabBarViewRect, 0, -40);
     
     if (!NSPointInRect(viewPoint, tabBarViewRect)) {
-        NSLog(@"Moved drag out");
+        //NSLog(@"Moved drag out");
         [tabs removeObject:draggingTab];
         destinationIndex = -1;
         [self redraw];
@@ -437,7 +437,7 @@
     
     destinationIndex = [self destinationCellIndexFromPoint:viewPoint];
     if (destinationIndex == -1) return ;
-    NSLog(@"Moved Dest index: %d", (int)destinationIndex);
+    //NSLog(@"Moved Dest index: %d", (int)destinationIndex);
     [tabs removeObject:draggingTab];
     [tabs insertObject:draggingTab atIndex:destinationIndex];
     [self redraw];
