@@ -24,6 +24,7 @@
 @synthesize title;
 @synthesize titleAttributedString;
 @synthesize canDrawCloseButton;
+@synthesize isDraggingTab;
 
 + (id)tabCellWithTabBarView:(ENTabBarView*)tabBarView title:(NSString *)aTittle{
     ENTabCell *tabCell = [[ENTabCell alloc] init];
@@ -31,6 +32,7 @@
     [tabCell setIsActived:NO];
     [tabCell setTitle:aTittle];
     [tabCell setCanDrawCloseButton:NO];
+    [tabCell setIsDraggingTab:NO];
     return tabCell;
 }
 
@@ -70,6 +72,10 @@
 // tab cell draw itself in this method, called in TabBarView's drawRect method
 // - :>
 - (void)draw{
+    if (isDraggingTab) {
+        //return ;
+    }
+    
     NSRect rect = [self frame];
     rect = NSInsetRect(rect, kBorderWidth / 2.0, kBorderWidth / 2.0);
     rect = NSIntegralRect(rect);

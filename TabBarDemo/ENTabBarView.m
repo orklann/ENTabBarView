@@ -112,10 +112,40 @@
         ENTabCell *tab = [tabs objectAtIndex:index];
         NSRect rect = [tab frame];
         CGFloat midX = NSMidX(rect);
-        if (p.x <= midX) {
-            return index - 1 >= 0 ? index - 1 : 0;
-        }else if (p.x > midX){
-            return index++;
+        CGFloat minX = NSMinX(rect);
+        CGFloat maxX = NSMaxX(rect);
+        CGFloat minY = NSMinY(rect);
+        //CGFloat midY = NSMidY(rect);
+        //CGFloat maxY = NSMaxY(rect);
+        CGFloat w = rect.size.width;
+        CGFloat h = rect.size.height;
+        
+        NSInteger ret;
+        NSRect firstRect = NSMakeRect(minX, minY, w/2, h);
+        NSRect secondeRect = NSMakeRect(midX, minY, w/2, h);
+        if (NSPointInRect(p, firstRect)) {
+            ret = index - 1;
+            ret = ret >= 0 ? ret : 0;
+            if(destinationIndex != -1 && index == destinationIndex){
+                return destinationIndex;
+            }
+            return ret;
+        }else if(NSPointInRect(p, secondeRect)){
+            ret = index + 1;
+            if (destinationIndex != -1 && index > destinationIndex) {
+                ret -= 1;
+            }else if(destinationIndex != -1 && index == destinationIndex){
+                return destinationIndex;
+            }
+            return ret;
+        }
+        
+        if (p.x > maxX && index == [tabs count] - 1) {
+            if (destinationIndex != -1 && index >= destinationIndex) {
+                return index;
+            }else{
+                return index + 1;
+            }
         }
     }
     return -1;
@@ -269,7 +299,6 @@
     [self removeAllToolTips];
     NSInteger index = 0;
     for(index = 0; index < [tabs count]; ++index){
-        if(index == destinationIndex) continue;
         NSRect rect = [self tabRectFromIndex:index];
         ENTabCell *tab = [tabs objectAtIndex:index];
         [tab setFrame:rect];
@@ -368,9 +397,12 @@
         draggingTab = [self tabCellInPoint:p];
         isDragging = YES;
         if (draggingTab != nil) {
+            draggingImage = [ENTabImage imageWithENTabCell:draggingTab];
+            [draggingTab setIsDraggingTab:YES];
             // Save source index
             sourceIndex = [tabs indexOfObject:draggingTab];
             [tabs removeObject:draggingTab];
+            [self redraw];
         }
     }
     
@@ -378,13 +410,11 @@
         return ;
     }
     
-    ENTabImage *img = [ENTabImage imageWithENTabCell:draggingTab];
-    
     NSSize offset = NSMakeSize(0.0, 0.0);
     
     p.x -= (draggingTab.frame.size.width / 2);
     p.y -= (draggingTab.frame.size.height / 2);
-    [self dragImage:img at:p offset:offset event:theEvent pasteboard:nil source:self slideBack:YES];
+    [self dragImage:draggingImage at:p offset:offset event:theEvent pasteboard:nil source:self slideBack:NO];
 }
 
 - (void)draggedImage:(NSImage *)image movedTo:(NSPoint)screenPoint{
@@ -394,8 +424,22 @@
     NSPoint windowLocation = [[self window] convertScreenToBase:screenPoint];
     NSPoint viewPoint = [self convertPoint:windowLocation fromView:nil];
     
+    NSRect tabBarViewRect = [self bounds];
+    //tabBarViewRect = NSInsetRect(tabBarViewRect, 0, -40);
+    
+    if (!NSPointInRect(viewPoint, tabBarViewRect)) {
+        NSLog(@"Moved drag out");
+        [tabs removeObject:draggingTab];
+        destinationIndex = -1;
+        [self redraw];
+        return ;
+    }
+    
     destinationIndex = [self destinationCellIndexFromPoint:viewPoint];
-    NSLog(@"Destination: %d", destinationIndex);
+    if (destinationIndex == -1) return ;
+    NSLog(@"Moved Dest index: %d", (int)destinationIndex);
+    [tabs removeObject:draggingTab];
+    [tabs insertObject:draggingTab atIndex:destinationIndex];
     [self redraw];
 
 }
@@ -405,11 +449,30 @@
     screenPoint.x += (draggingTab.frame.size.width / 2);
     screenPoint.y += (draggingTab.frame.size.height / 2);
     NSPoint windowLocation = [[self window] convertScreenToBase:screenPoint];
-    NSLog(@"Window: %@", NSStringFromPoint(windowLocation));
     NSPoint viewPoint = [self convertPoint:windowLocation fromView:nil];
-    NSLog(@"View: %@", NSStringFromPoint(viewPoint));
-    NSLog(@"Dragging end.");
     
+    NSRect tabBarViewRect = [self bounds];
+    if (!NSPointInRect(viewPoint, tabBarViewRect)) {
+        [draggingTab setIsDraggingTab:NO];
+        [tabs removeObject:draggingTab];
+        [tabs insertObject:draggingTab atIndex:sourceIndex];
+        [self redraw];
+        sourceIndex = -1;
+        destinationIndex = -1;
+        return ;
+    }
+    
+    destinationIndex = [self destinationCellIndexFromPoint:viewPoint];
+    if (destinationIndex == -1) {
+        return ;
+    }
+    [draggingTab setIsDraggingTab:NO];
+    [tabs removeObject:draggingTab];
+    [tabs insertObject:draggingTab atIndex:destinationIndex];
+    [self redraw];
+    
+    destinationIndex = -1;
+    sourceIndex = -1;
     isDragging = NO;
 }
 @end

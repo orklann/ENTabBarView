@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ENTabCell.h"
+#import "ENTabImage.h"
 
 @interface ENTabBarView : NSView<NSMenuDelegate>{
     NSMutableArray *tabs;
@@ -19,6 +20,7 @@
     NSInteger destinationIndex;
     NSInteger sourceIndex;
     ENTabCell *draggingTab;
+    ENTabImage *draggingImage;
 }
 
 
