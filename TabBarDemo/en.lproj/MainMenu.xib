@@ -378,32 +378,32 @@
         <window title="TabBarDemo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="485" height="295"/>
+            <rect key="contentRect" x="335" y="390" width="485" height="391"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="128" height="50"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="485" height="295"/>
+                <rect key="frame" x="0.0" y="0.0" width="485" height="391"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView appearanceType="aqua" id="tRW-Eo-uZo" customClass="ENTabBarView">
-                        <rect key="frame" x="137" y="263" width="163" height="32"/>
+                        <rect key="frame" x="137" y="359" width="163" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                     <scrollView appearanceType="aqua" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="JGx-eT-PLq">
-                        <rect key="frame" x="-1" y="4" width="487" height="259"/>
+                        <rect key="frame" x="-1" y="4" width="487" height="355"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="LPW-WJ-nig">
-                            <rect key="frame" x="1" y="1" width="485" height="257"/>
+                            <rect key="frame" x="1" y="1" width="485" height="353"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="5WJ-MA-9mk">
-                                    <rect key="frame" x="0.0" y="0.0" width="485" height="257"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="485" height="353"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="485" height="257"/>
+                                    <size key="minSize" width="485" height="353"/>
                                     <size key="maxSize" width="485" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="485" height="257"/>
+                                    <size key="minSize" width="485" height="353"/>
                                     <size key="maxSize" width="485" height="10000000"/>
                                 </textView>
                             </subviews>
