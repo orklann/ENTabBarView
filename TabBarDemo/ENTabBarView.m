@@ -161,6 +161,7 @@
 @synthesize tabActivedTitleColor;
 @synthesize smallControlColor;
 @synthesize tabFont;
+@synthesize delegate;
 
 #pragma mark - - - - - - - - -
 - (id)initWithFrame:(NSRect)frame

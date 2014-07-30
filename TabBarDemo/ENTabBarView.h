@@ -10,6 +10,8 @@
 #import "ENTabCell.h"
 #import "ENTabImage.h"
 
+@protocol ENTabBarViewDelegate;
+
 @interface ENTabBarView : NSView<NSMenuDelegate>{
     NSMutableArray *tabs;
     NSBezierPath *tabListControlPath;
@@ -34,8 +36,20 @@
 @property (readwrite) NSColor *tabTitleColor;
 @property (readwrite) NSColor *tabActivedTitleColor;
 @property (readwrite) NSColor *smallControlColor;
+@property (readwrite) id<ENTabBarViewDelegate> delegate;
 
 - (id)addTabViewWithTitle:(NSString *)title;
 - (void)redraw;
 - (void)removeTabCell:(ENTabCell*)tabCell;
+@end
+
+@protocol ENTabBarViewDelegate <NSObject>
+
+@optional
+
+- (void)tabWillActive:(ENTabCell*)tab;
+- (void)tabDidActived:(ENTabCell*)tab;
+
+- (void)tabWillClose:(ENTabCell*)tab;
+- (void)tabDidClosed:(ENTabCell*)tab;
 @end
