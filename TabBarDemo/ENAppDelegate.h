@@ -17,4 +17,6 @@
 @property (assign) IBOutlet NSWindow *window;
 
 - (IBAction)newTab:(id)sender;
+- (IBAction)setDefaultTheme:(id)sender;
+- (IBAction)setZenTheme:(id)sender;
 @end
