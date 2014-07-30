@@ -124,7 +124,7 @@
         NSRect firstRect = NSMakeRect(minX, minY, w/2, h);
         NSRect secondeRect = NSMakeRect(midX, minY, w/2, h);
         if (NSPointInRect(p, firstRect)) {
-            ret = index - 1;
+            ret = index; // don't substract by 1, fix bugs
             ret = ret >= 0 ? ret : 0;
             if(destinationIndex != -1 && index == destinationIndex){
                 return destinationIndex;
