@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9306860D19879E28001E2B7C /* ENTabImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9306860C19879E28001E2B7C /* ENTabImage.m */; };
+		93CD28911989336200A2EE93 /* ENTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CD288C1989336200A2EE93 /* ENTabBarView.m */; };
+		93CD28921989336200A2EE93 /* ENTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CD288E1989336200A2EE93 /* ENTabCell.m */; };
+		93CD28931989336200A2EE93 /* ENTabImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CD28901989336200A2EE93 /* ENTabImage.m */; };
 		93E1D8A31982298F00CB9756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E1D8A21982298F00CB9756 /* Cocoa.framework */; };
 		93E1D8AD1982298F00CB9756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E1D8AB1982298F00CB9756 /* InfoPlist.strings */; };
 		93E1D8AF1982298F00CB9756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8AE1982298F00CB9756 /* main.m */; };
@@ -19,8 +21,6 @@
 		93E1D8C31982298F00CB9756 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E1D8A21982298F00CB9756 /* Cocoa.framework */; };
 		93E1D8CB1982298F00CB9756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93E1D8C91982298F00CB9756 /* InfoPlist.strings */; };
 		93E1D8CD1982298F00CB9756 /* TabBarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8CC1982298F00CB9756 /* TabBarDemoTests.m */; };
-		93E1D8D8198229B800CB9756 /* ENTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8D7198229B800CB9756 /* ENTabBarView.m */; };
-		93E1D8DB1982330800CB9756 /* ENTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8DA1982330800CB9756 /* ENTabCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9306860B19879E28001E2B7C /* ENTabImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENTabImage.h; sourceTree = "<group>"; };
-		9306860C19879E28001E2B7C /* ENTabImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENTabImage.m; sourceTree = "<group>"; };
 		93073D53198535C6005B31C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		93CD288B1989336200A2EE93 /* ENTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabBarView.h; path = ENTabBarView/ENTabBarView.h; sourceTree = "<group>"; };
+		93CD288C1989336200A2EE93 /* ENTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabBarView.m; path = ENTabBarView/ENTabBarView.m; sourceTree = "<group>"; };
+		93CD288D1989336200A2EE93 /* ENTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabCell.h; path = ENTabBarView/ENTabCell.h; sourceTree = "<group>"; };
+		93CD288E1989336200A2EE93 /* ENTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabCell.m; path = ENTabBarView/ENTabCell.m; sourceTree = "<group>"; };
+		93CD288F1989336200A2EE93 /* ENTabImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabImage.h; path = ENTabBarView/ENTabImage.h; sourceTree = "<group>"; };
+		93CD28901989336200A2EE93 /* ENTabImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabImage.m; path = ENTabBarView/ENTabImage.m; sourceTree = "<group>"; };
 		93E1D89F1982298F00CB9756 /* TabBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E1D8A21982298F00CB9756 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		93E1D8A51982298F00CB9756 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -55,10 +59,6 @@
 		93E1D8C81982298F00CB9756 /* TabBarDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TabBarDemoTests-Info.plist"; sourceTree = "<group>"; };
 		93E1D8CA1982298F00CB9756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93E1D8CC1982298F00CB9756 /* TabBarDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarDemoTests.m; sourceTree = "<group>"; };
-		93E1D8D6198229B800CB9756 /* ENTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabBarView.h; path = TabBarDemo/ENTabBarView.h; sourceTree = "<group>"; };
-		93E1D8D7198229B800CB9756 /* ENTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabBarView.m; path = TabBarDemo/ENTabBarView.m; sourceTree = "<group>"; };
-		93E1D8D91982330800CB9756 /* ENTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENTabCell.h; path = TabBarDemo/ENTabCell.h; sourceTree = "<group>"; };
-		93E1D8DA1982330800CB9756 /* ENTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENTabCell.m; path = TabBarDemo/ENTabCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +85,12 @@
 		93073D541985416D005B31C1 /* ENTabBarView */ = {
 			isa = PBXGroup;
 			children = (
-				9306860B19879E28001E2B7C /* ENTabImage.h */,
-				9306860C19879E28001E2B7C /* ENTabImage.m */,
-				93E1D8D91982330800CB9756 /* ENTabCell.h */,
-				93E1D8DA1982330800CB9756 /* ENTabCell.m */,
-				93E1D8D6198229B800CB9756 /* ENTabBarView.h */,
-				93E1D8D7198229B800CB9756 /* ENTabBarView.m */,
+				93CD288B1989336200A2EE93 /* ENTabBarView.h */,
+				93CD288C1989336200A2EE93 /* ENTabBarView.m */,
+				93CD288D1989336200A2EE93 /* ENTabCell.h */,
+				93CD288E1989336200A2EE93 /* ENTabCell.m */,
+				93CD288F1989336200A2EE93 /* ENTabImage.h */,
+				93CD28901989336200A2EE93 /* ENTabImage.m */,
 			);
 			name = ENTabBarView;
 			sourceTree = "<group>";
@@ -276,11 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93E1D8D8198229B800CB9756 /* ENTabBarView.m in Sources */,
+				93CD28921989336200A2EE93 /* ENTabCell.m in Sources */,
+				93CD28911989336200A2EE93 /* ENTabBarView.m in Sources */,
+				93CD28931989336200A2EE93 /* ENTabImage.m in Sources */,
 				93E1D8AF1982298F00CB9756 /* main.m in Sources */,
-				9306860D19879E28001E2B7C /* ENTabImage.m in Sources */,
 				93E1D8B61982298F00CB9756 /* ENAppDelegate.m in Sources */,
-				93E1D8DB1982330800CB9756 /* ENTabCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
