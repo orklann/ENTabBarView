@@ -115,8 +115,6 @@
         CGFloat minX = NSMinX(rect);
         CGFloat maxX = NSMaxX(rect);
         CGFloat minY = NSMinY(rect);
-        //CGFloat midY = NSMidY(rect);
-        //CGFloat maxY = NSMaxY(rect);
         CGFloat w = rect.size.width;
         CGFloat h = rect.size.height;
         
