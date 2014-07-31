@@ -1,5 +1,7 @@
 ## ENTabBarView
 
+ENTabBarView is a clean and simple TabBarView for Cococa with ARC enabled and Objective-C.
+
 ### How to use
 
 * Drag ENTabBarView into your project.
