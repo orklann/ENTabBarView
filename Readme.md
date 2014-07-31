@@ -6,13 +6,15 @@
 * Drag a NSView object into Interface Builder, and set its class as ENTabBarView
 * In your App delegate's 
 
-    `- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+```
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {   
     [tabBarView setDelegate:self];
     
     [tabBarView addTabViewWithTitle:@"Elk Developer's Note.txt"];
     [tabBarView addTabViewWithTitle:@"index.html.rjs"];
-}`
+}
+```
   
   Here we assume that `tabBarView` is a IBOutlet to that ENTabBarView in Interface Builder.
 
@@ -39,6 +41,7 @@ You can implement these methods in your `tabBarView`'s delegate to get notified 
 
 ### ScreenShots
 
+![image](https://raw.githubusercontent.com/aaron-elkins/ENTabBarView/master/ENTabBarView.png)
 
 ### Authors
 
