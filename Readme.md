@@ -1,6 +1,6 @@
 ## ENTabBarView
 
-ENTabBarView is a clean and simple TabBarView for Cococa with ARC enabled and Objective-C.
+ENTabBarView is a clean and simple TabBarView for Cocoa with ARC enabled and Objective-C.
 
 ### How to use
 
