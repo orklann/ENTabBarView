@@ -55,4 +55,4 @@ If you like this chunk of code, please consider [buying me a cup of tea](https:/
 
 ### License
 
-Yahoo Flickr Buttons is licensed under [MIT](http://opensource.org/licenses/MIT) license.
+ENTabBarView is licensed under [MIT](http://opensource.org/licenses/MIT) license.
