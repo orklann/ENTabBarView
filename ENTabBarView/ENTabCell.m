@@ -13,7 +13,7 @@
 
 #define kCloseButtonWidth 8
 
-#define deltaXfromLeftAndRight 3
+#define deltaXfromLeftAndRight 2
 
 @implementation ENTabCell
 
