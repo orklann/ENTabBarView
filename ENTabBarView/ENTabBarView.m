@@ -25,7 +25,7 @@
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem;
 - (ENTabCell*)tabCellInPoint:(NSPoint)p;
 - (NSInteger)destinationCellIndexFromPoint:(NSPoint)p;
-- (void)exchangeTab:(ENTabCell*)tabOne withTab:(ENTabCell *)tabTwo;
+- (void)exchangeTabWithIndex:(NSUInteger)One withTabIndex:(NSUInteger)two;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -87,6 +87,14 @@
     NSUInteger index = [menu indexOfItem:item];
     if (index != -1) {
         ENTabCell *tab = [tabs objectAtIndex:index];
+        NSRect tabRect = [tab frame];
+        NSRect tabBarViewRect = [self bounds];
+        // If the selected tab is not fully shown in the tabbar view, we
+        // then exchange it with first(0 index) tab, and then active it.
+        if (!CGRectContainsRect(tabBarViewRect, tabRect)) {
+            NSUInteger tabIndex = [[self tabs] indexOfObject:tab];
+            [self exchangeTabWithIndex:tabIndex withTab:0];
+        }
         [tab setAsActiveTab];
     }
 }
