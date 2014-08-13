@@ -25,6 +25,7 @@
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem;
 - (ENTabCell*)tabCellInPoint:(NSPoint)p;
 - (NSInteger)destinationCellIndexFromPoint:(NSPoint)p;
+- (void)exchangeTab:(ENTabCell*)tabOne withTab:(ENTabCell *)tabTwo;
 @end
 
 @implementation ENTabBarView (Expose)
@@ -147,6 +148,11 @@
         }
     }
     return -1;
+}
+
+- (void)exchangeTabWithIndex:(NSUInteger)one withTab:(NSUInteger)two{
+    NSMutableArray *allTabs = [self tabs];
+    [allTabs exchangeObjectAtIndex:one withObjectAtIndex:two];
 }
 @end
 
