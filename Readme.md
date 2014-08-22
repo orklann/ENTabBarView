@@ -25,7 +25,7 @@ ENTabBarView is a clean and simple TabBarView for Cocoa with ARC enabled and Obj
 
 After `[tabBarView setDelegate:self]`, and set your App delegate like this: 
 
-	`@interface ENAppDelegate : NSObject <NSApplicationDelegate, ENTabBarViewDelegate>{`
+`@interface ENAppDelegate : NSObject <NSApplicationDelegate, ENTabBarViewDelegate>{`
 	
 You can implement these methods in your `tabBarView`'s delegate to get notified while these events are sent as the method name suggested.
 
