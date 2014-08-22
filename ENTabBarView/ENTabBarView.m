@@ -329,6 +329,16 @@
     }
     
     [tabs addObject:tab];
+    
+    // If the new tab(add it to last) is not fully shown in the tabbar view, we
+    // then exchange it with first(0 index) tab, and then active it.
+    NSUInteger tabIndex = [[self tabs] indexOfObject:tab];
+    NSRect tabBarViewRect = [self bounds];
+    NSRect tabRect = [self tabRectFromIndex:tabIndex];
+    if (!CGRectContainsRect(tabBarViewRect, tabRect)) {
+        [self exchangeTabWithIndex:tabIndex withTab:0];
+    }
+
     [tab setAsActiveTab];
     
     if ([[self delegate] respondsToSelector:@selector(tabDidBeCreated:)]) {
