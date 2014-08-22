@@ -50,6 +50,16 @@
 
 @optional
 
+/* =============================================================
+ * Usually we store tabs (ENTabCell*) as a key in a NSDitionary,
+ * And other object as a value to identify which tab in the foll-
+ * owing events.
+ * If you need to know the tab index(order), you can get it like
+ * this:
+ * NSInteger index = [[tabBarView tabs] indexOfObject:tab]];
+ * Here **tabBarView** is an instance of ENTabBarView
+ * ============================================================*/
+
 - (void)tabWillActive:(ENTabCell*)tab;
 - (void)tabDidActived:(ENTabCell*)tab;
 
